@@ -342,7 +342,7 @@
   const bio = card?.querySelector("#bio-seba");
   const message = document.querySelector(".presentacion__mensaje");
   const wideLayout = window.matchMedia("(min-width: 800px)");
-  let biographyOpen = false;
+  let biographyOpen = window.location.hash === "#tarjeta-seba";
   const renderBiography = () => {
     if (!card || !toggle || !bio || !label) return;
     card.classList.toggle("is-open", biographyOpen);
@@ -533,9 +533,6 @@
   const revealElements = document.querySelectorAll(
     ".clases__cabecera, .clases__caminos, .planes__header, .planes__trial, .planes__grid, .dele__container, .opiniones__header, .opiniones__grid, .faq__header, .faq__list",
   );
-  const faqRevealElements = document.querySelectorAll(
-    ".faq__header, .faq__list",
-  );
   let revealObserver;
 
   const show = (element) => element.classList.add("is-visible");
@@ -650,17 +647,20 @@
   const backdrop = modal.querySelector(".testimonio-modal__backdrop");
 
   const subtitleButtons = modal.querySelectorAll("[data-subtitle-lang]");
+  let opener;
+  let backgroundElements = [];
+  let subtitleLanguage = "es";
 
   const setSubtitleLanguage = (language) => {
+    subtitleLanguage = language;
     Array.from(video.textTracks).forEach((track) => {
       track.mode = track.language === language ? "showing" : "disabled";
     });
 
     subtitleButtons.forEach((button) => {
-      button.classList.toggle(
-        "is-active",
-        button.dataset.subtitleLang === language,
-      );
+      const selected = button.dataset.subtitleLang === language;
+      button.classList.toggle("is-active", selected);
+      button.setAttribute("aria-pressed", String(selected));
     });
   };
 
@@ -702,13 +702,7 @@
 
     title.textContent = `Testimonio de ${nombre}`;
 
-    video.addEventListener(
-      "loadedmetadata",
-      () => {
-        setSubtitleLanguage("es");
-      },
-      { once: true },
-    );
+    setSubtitleLanguage("es");
 
     video.load();
 
@@ -716,15 +710,26 @@
     modal.setAttribute("aria-hidden", "false");
 
     document.body.classList.add("modal-open");
+    opener = button;
+    backgroundElements = Array.from(document.body.children)
+      .filter((element) => element !== modal && element.tagName !== "SCRIPT")
+      .map((element) => ({ element, inert: element.inert }));
+    backgroundElements.forEach(({ element }) => { element.inert = true; });
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (modal.classList.contains("is-open")) closeButton.focus({ preventScroll: true });
+    }));
   };
 
   const closeModal = () => {
+    if (!modal.classList.contains("is-open")) return;
     video.pause();
     video.currentTime = 0;
 
+    backgroundElements.forEach(({ element, inert }) => { element.inert = inert; });
+    backgroundElements = [];
+    opener?.focus({ preventScroll: true });
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
-
     document.body.classList.remove("modal-open");
   };
 
@@ -740,13 +745,28 @@
     });
   });
 
+  // One listener per video, even if it is closed before metadata finishes loading.
+  video.addEventListener("loadedmetadata", () => setSubtitleLanguage(subtitleLanguage));
   closeButton.addEventListener("click", closeModal);
 
   backdrop.addEventListener("click", closeModal);
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && modal.classList.contains("is-open")) {
+    if (!modal.classList.contains("is-open")) return;
+    if (event.key === "Escape") {
+      event.preventDefault();
       closeModal();
+    } else if (event.key === "Tab") {
+      const controls = Array.from(modal.querySelectorAll("button, video[controls]"));
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     }
   });
 })();
@@ -759,28 +779,23 @@
 
   if (!faqItems.length) return;
 
+  const setExpanded = (item, expanded) => {
+    item.classList.toggle("is-open", expanded);
+    item.querySelector(".faq__question")?.setAttribute("aria-expanded", String(expanded));
+    const answer = item.querySelector(".faq__answer");
+    if (answer) {
+      answer.setAttribute("aria-hidden", String(!expanded));
+      answer.inert = !expanded;
+    }
+  };
+
   faqItems.forEach((item) => {
     const button = item.querySelector(".faq__question");
-
     if (!button) return;
-
+    setExpanded(item, item.classList.contains("is-open"));
     button.addEventListener("click", () => {
-      const isOpen = item.classList.contains("is-open");
-
-      faqItems.forEach((otherItem) => {
-        otherItem.classList.remove("is-open");
-
-        const otherButton = otherItem.querySelector(".faq__question");
-
-        if (otherButton) {
-          otherButton.setAttribute("aria-expanded", "false");
-        }
-      });
-
-      if (!isOpen) {
-        item.classList.add("is-open");
-        button.setAttribute("aria-expanded", "true");
-      }
+      const shouldOpen = !item.classList.contains("is-open");
+      faqItems.forEach((otherItem) => setExpanded(otherItem, otherItem === item && shouldOpen));
     });
   });
 })();

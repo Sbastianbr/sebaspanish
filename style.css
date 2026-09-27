@@ -371,6 +371,7 @@ a {
 
   position: relative;
   z-index: 0;
+  isolation: isolate;
 }
 
 .presentacion::before {
@@ -481,6 +482,12 @@ a {
       visibility 0s linear 180ms;
   }
 
+  .tarjeta-seba.is-open ~ .presentacion__motivos {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
   /* Una biografía visible sin JavaScript conserva también la presentación. */
   .tarjeta-seba:not(.is-interactive) {
     grid-column: 1 / -1;
@@ -531,18 +538,6 @@ a {
   width: 100%;
   border-color: var(--color-orange);
   box-shadow: 0 22px 56px rgba(16, 42, 67, 0.12);
-}
-
-.tarjeta-seba.is-open ~ .presentacion__motivos {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.presentacion__motivos {
-  transition:
-    opacity 220ms ease,
-    visibility 220ms ease;
 }
 
 .tarjeta-seba__perfil {
@@ -1149,12 +1144,6 @@ a {
   }
 }
 
-/* Capa ambiental: solo ella recorta las formas, nunca la tarjeta ni su sombra. */
-.presentacion {
-  position: relative;
-  isolation: isolate;
-}
-
 /* ==================================================
    5. CLASES / CÓMO APRENDERÁS CONMIGO
 ================================================== */
@@ -1333,13 +1322,6 @@ a {
     transform 240ms ease,
     box-shadow 240ms ease,
     filter 240ms ease;
-}
-
-.clases__camino:hover .clases__camino-icon {
-  transform: translateY(-3px) scale(1.03);
-  filter: saturate(1.08);
-
-  box-shadow: 0 10px 24px rgba(15, 42, 67, 0.1);
 }
 
 .clases__camino--uno-a-uno .clases__camino-icono svg {
@@ -1559,6 +1541,7 @@ a {
 }
 
 .presentacion__motivos {
+  transition: opacity 220ms ease, visibility 220ms ease;
   grid-column: 1;
   grid-row: 2;
   min-width: 0;
@@ -1667,6 +1650,12 @@ a {
     height: 78px;
   }
 }
+@media (max-width: 799px) {
+  .presentacion__motivos {
+    grid-row: 3;
+  }
+}
+
 @media (max-width: 599px) {
   .presentacion__usos {
     grid-template-columns: minmax(0, 1fr);
@@ -2763,128 +2752,9 @@ body.ambient--dele {
   max-width: 650px;
   margin: 16px 0 0;
 
-  color: var(--opiniones-text);
+  color: var(--opiniones-text, var(--color-navy));
   font-size: 17px;
   line-height: 1.65;
-}
-
-/* DOS VIDEOS PRINCIPALES */
-
-.opinion__media--michal {
-  background:
-    radial-gradient(
-      circle at 25% 30%,
-      rgba(228, 71, 11, 0.12),
-      transparent 35%
-    ),
-    linear-gradient(135deg, #f7f2ed, #f2f3fb);
-}
-
-.opinion__badge {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-
-  padding: 7px 12px;
-
-  color: #fff;
-  background: var(--opiniones-accent);
-
-  border-radius: 999px;
-
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.6px;
-}
-
-.opinion__play {
-  display: grid;
-  place-items: center;
-
-  width: 68px;
-  height: 68px;
-
-  padding: 0 0 0 4px;
-
-  color: #fff;
-  background: var(--opiniones-accent);
-
-  border: 0;
-  border-radius: 50%;
-
-  cursor: pointer;
-
-  font-size: 22px;
-
-  box-shadow: 0 12px 30px rgba(228, 71, 11, 0.22);
-
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease;
-}
-
-.opinion__play:hover {
-  transform: scale(1.06);
-
-  box-shadow: 0 16px 36px rgba(228, 71, 11, 0.28);
-}
-
-/* PIE DEL VIDEO */
-
-.opinion__video-info h3 {
-  margin: 0;
-
-  color: var(--color-navy);
-  font-size: 18px;
-  font-weight: 800;
-}
-
-.opinion__video-info span {
-  display: block;
-  margin-top: 4px;
-
-  color: var(--opiniones-text);
-  font-size: 13px;
-}
-
-.opinion__video-link {
-  flex: 0 0 auto;
-
-  color: var(--opiniones-accent) !important;
-
-  font-size: 14px !important;
-  font-weight: 700;
-}
-
-/* TESTIMONIOS ESCRITOS */
-
-.opinion--text p {
-  margin: 0;
-
-  color: var(--color-navy);
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-.opinion--text footer {
-  margin-top: 18px;
-}
-
-.opinion--text strong {
-  display: block;
-
-  color: var(--color-navy);
-  font-size: 14px;
-  font-weight: 800;
-}
-
-.opinion--text footer span {
-  display: block;
-
-  margin-top: 3px;
-
-  color: var(--opiniones-text);
-  font-size: 13px;
 }
 
 /* TABLET */
@@ -2894,10 +2764,6 @@ body.ambient--dele {
     padding-top: 72px;
     padding-bottom: 80px;
   }
-
-  .opiniones__textos {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 /* MÓVIL */
@@ -2905,24 +2771,6 @@ body.ambient--dele {
 @media (max-width: 650px) {
   .opiniones {
     padding: 64px 20px 68px;
-  }
-
-  .opiniones__videos {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .opinion__media {
-    min-height: 220px;
-  }
-
-  .opiniones__textos {
-    grid-template-columns: 1fr;
-    margin-top: 28px;
-  }
-
-  .opinion__video-info {
-    padding: 18px 20px 20px;
   }
 }
 
@@ -3084,6 +2932,7 @@ body.ambient--dele {
 
   width: min(420px, 92vw);
   max-height: 90vh;
+  overflow-y: auto;
 
   padding: 18px;
 
@@ -3288,6 +3137,15 @@ body.modal-open {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .opinion-card,
+  .opinion-card__avatar,
+  .testimonio-modal,
+  .testimonio-modal__content {
+    transition: none;
+  }
+}
+
 /* ==========================================
    FAQ / PREGUNTAS FRECUENTES
 ========================================== */
@@ -3325,6 +3183,7 @@ body.modal-open {
   margin: 0;
 
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
 
@@ -3333,14 +3192,6 @@ body.modal-open {
   line-height: 1.05;
   letter-spacing: -2px;
   font-weight: 800;
-}
-
-.faq__title::before {
-  right: calc(100% + 14px);
-}
-
-.faq__title::after {
-  left: calc(100% + 14px);
 }
 
 .faq__title-accent {
@@ -3406,6 +3257,11 @@ body.modal-open {
   text-align: left;
 
   cursor: pointer;
+}
+
+.faq__question:focus-visible {
+  outline: 2px solid var(--color-orange-dark);
+  outline-offset: -3px;
 }
 
 .faq__plus {
@@ -3505,6 +3361,7 @@ body.modal-open {
 @media (prefers-reduced-motion: reduce) {
   .faq__item,
   .faq__plus,
+  .faq__plus svg,
   .faq__answer {
     transition: none;
   }
@@ -3719,8 +3576,8 @@ body.modal-open {
     width: 218px;
   }
 
-  .site-footer__nav ul {
-    grid-template-columns: minmax(0, 1fr);
+  .site-footer__nav {
+    column-gap: 12px;
   }
 
   .site-footer__bottom {
