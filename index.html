@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>SebaSpanish | V2</title>
-
+    <title>SebaSpanish | Clases de español online</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -14,8 +13,8 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="style.css?v=20260927-audit" />
-    <script src="script.js?v=20260927-audit" defer></script>
+    <link rel="stylesheet" href="style.css?v=20260927-i18n" />
+    <script src="script.js?v=20260927-i18n" defer></script>
   </head>
 
   <body>
@@ -62,17 +61,14 @@
             Opiniones
           </a>
 
-
-<a
-  class="navbar__link"
-  href="#faq"
-  data-section="faq"
-  data-i18n="nav_faq"
->
-  Preguntas
-</a>
-
-
+          <a
+            class="navbar__link"
+            href="#faq"
+            data-section="faq"
+            data-i18n="nav_faq"
+          >
+            Preguntas
+          </a>
 
           <a
             class="navbar__link"
@@ -186,7 +182,7 @@
         <div class="presentacion__mensaje">
           <h1 id="presentacion-titulo">
             <span data-i18n="hero_title">Habla español</span
-            ><span data-i18n="hero_title_accent">con más confianza.</span>
+            ><span data-i18n="hero_title_accent">con más confianza</span>
           </h1>
           <p class="presentacion__descripcion" data-i18n="hero_description">
             Practicamos con situaciones reales para que te sueltes al hablar y
@@ -223,9 +219,11 @@
                   <span data-i18n="teacher_name">Soy Sebastián.</span>
                   <img
                     class="tarjeta-seba__bandera"
-src="images/bandera-chile.svg?v=2"                    alt="Chile"
+                    src="images/bandera-chile.svg?v=2"
+                    alt="Chile"
                     width="24"
                     height="16"
+                    data-i18n-alt="country_chile"
                   />
                 </h2>
                 <p data-i18n="teacher_role">Tu profesor de español.</p>
@@ -437,20 +435,37 @@ src="images/bandera-chile.svg?v=2"                    alt="Chile"
           </button>
         </article>
         <div class="presentacion__motivos">
-          <h2 class="presentacion__usos-titulo" id="usos-titulo" data-i18n="use_heading">
+          <h2
+            class="presentacion__usos-titulo"
+            id="usos-titulo"
+            data-i18n="use_heading"
+          >
             ¿Para qué quieres usar tu español?
           </h2>
           <p class="presentacion__usos-intro" data-i18n="use_intro">
             Sea cual sea tu motivo, las clases se adaptan a ti.
           </p>
-          <ul class="presentacion__usos" role="list" aria-labelledby="usos-titulo">
-            
+          <ul
+            class="presentacion__usos"
+            role="list"
+            aria-labelledby="usos-titulo"
+          >
             <li class="presentacion__uso presentacion__uso--work">
               <span class="presentacion__uso-sello" aria-hidden="true">
-                <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <svg
+                  viewBox="0 0 80 80"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  focusable="false"
+                >
                   <path d="M29 25v-7a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4v7" />
                   <rect x="13" y="25" width="54" height="44" rx="8" />
-                  <path d="M13 36a7 7 0 0 0 7 7h40a7 7 0 0 0 7-7M34 43v5a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-5" />
+                  <path
+                    d="M13 36a7 7 0 0 0 7 7h40a7 7 0 0 0 7-7M34 43v5a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-5"
+                  />
                 </svg>
               </span>
               <div class="presentacion__uso-copy">
@@ -463,66 +478,100 @@ src="images/bandera-chile.svg?v=2"                    alt="Chile"
             <li class="presentacion__uso presentacion__uso--travel">
               <span class="presentacion__uso-sello" aria-hidden="true">
                 <svg
-  viewBox="0 0 80 80"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="3"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  focusable="false"
->
-  <!-- Asa telescópica -->
-  <path d="M31 23V15a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8" />
-  <path d="M35 10h10" />
+                  viewBox="0 0 80 80"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  focusable="false"
+                >
+                  <!-- Asa telescópica -->
+                  <path d="M31 23V15a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8" />
+                  <path d="M35 10h10" />
 
-  <!-- Cuerpo de la maleta -->
-  <rect x="18" y="23" width="44" height="42" rx="8" />
+                  <!-- Cuerpo de la maleta -->
+                  <rect x="18" y="23" width="44" height="42" rx="8" />
 
-  <!-- Relieves frontales -->
-  <path d="M29 32v24" />
-  <path d="M40 32v24" />
-  <path d="M51 32v24" />
+                  <!-- Relieves frontales -->
+                  <path d="M29 32v24" />
+                  <path d="M40 32v24" />
+                  <path d="M51 32v24" />
 
-  <!-- Ruedas -->
-  <circle cx="28" cy="69" r="3" />
-  <circle cx="52" cy="69" r="3" />
-</svg>
+                  <!-- Ruedas -->
+                  <circle cx="28" cy="69" r="3" />
+                  <circle cx="52" cy="69" r="3" />
+                </svg>
               </span>
               <div class="presentacion__uso-copy">
                 <h3 data-i18n="use_travel">De viaje</h3>
-                <p class="presentacion__uso-resumen" data-i18n="use_travel_text">
+                <p
+                  class="presentacion__uso-resumen"
+                  data-i18n="use_travel_text"
+                >
                   Muévete con más confianza.
                 </p>
               </div>
             </li>
             <li class="presentacion__uso presentacion__uso--connect">
               <span class="presentacion__uso-sello" aria-hidden="true">
-                <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-                  <path d="M36 9h10a9 9 0 0 1 9 9v1a9 9 0 0 1-9 9h-4l-6 6v-6a9 9 0 0 1-9-9v-1a9 9 0 0 1 9-9Z" />
+                <svg
+                  viewBox="0 0 80 80"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  focusable="false"
+                >
+                  <path
+                    d="M36 9h10a9 9 0 0 1 9 9v1a9 9 0 0 1-9 9h-4l-6 6v-6a9 9 0 0 1-9-9v-1a9 9 0 0 1 9-9Z"
+                  />
                   <circle cx="24" cy="43" r="7" />
                   <circle cx="55" cy="43" r="7" />
-                  <path d="M8 72v-3a16 16 0 0 1 32 0v3M40 72v-3a16 16 0 0 1 32 0v3" />
+                  <path
+                    d="M8 72v-3a16 16 0 0 1 32 0v3M40 72v-3a16 16 0 0 1 32 0v3"
+                  />
                 </svg>
               </span>
               <div class="presentacion__uso-copy">
                 <h3 data-i18n="use_connect">Con gente nueva</h3>
-                <p class="presentacion__uso-resumen" data-i18n="use_connect_text">
+                <p
+                  class="presentacion__uso-resumen"
+                  data-i18n="use_connect_text"
+                >
                   Conoce, conversa y crea vínculos.
                 </p>
               </div>
             </li>
             <li class="presentacion__uso presentacion__uso--abroad">
               <span class="presentacion__uso-sello" aria-hidden="true">
-                <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <svg
+                  viewBox="0 0 80 80"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  focusable="false"
+                >
                   <circle cx="31" cy="48" r="26" />
-                  <path d="m29 22-4 7 5 4-4 5-7 1-4 7-9-5M8 51l9 4 6 1 6 7-6 10M43 25l-5 12-4 6 6 6-2 8 7 4-3 10" />
-                  <path d="M74 24c0 12-18 29-18 29S38 36 38 24a18 18 0 1 1 36 0Z" fill="var(--uso-tinte)" />
+                  <path
+                    d="m29 22-4 7 5 4-4 5-7 1-4 7-9-5M8 51l9 4 6 1 6 7-6 10M43 25l-5 12-4 6 6 6-2 8 7 4-3 10"
+                  />
+                  <path
+                    d="M74 24c0 12-18 29-18 29S38 36 38 24a18 18 0 1 1 36 0Z"
+                    fill="var(--uso-tinte)"
+                  />
                   <path d="m48 24 8-8 8 8M50 23v11h12V23M55 34v-7h3v7" />
                 </svg>
               </span>
               <div class="presentacion__uso-copy">
                 <h3 data-i18n="use_abroad">Viviendo fuera</h3>
-                <p class="presentacion__uso-resumen" data-i18n="use_abroad_text">
+                <p
+                  class="presentacion__uso-resumen"
+                  data-i18n="use_abroad_text"
+                >
                   Haz tu día a día también en español.
                 </p>
               </div>
@@ -534,7 +583,6 @@ src="images/bandera-chile.svg?v=2"                    alt="Chile"
      CLASES / CÓMO APRENDERÁS CONMIGO
 ========================================= -->
       <section class="clases" id="clases" aria-labelledby="clases-titulo">
-        
         <div class="clases__container">
           <div class="clases__cabecera">
             <h2 class="clases__title" id="clases-titulo">
@@ -777,7 +825,9 @@ src="images/bandera-chile.svg?v=2"                    alt="Chile"
 
               <div>
                 <strong data-i18n="classes_flexible">Horarios flexibles</strong>
-                <span data-i18n="classes_when">Elige entre horarios disponibles</span>
+                <span data-i18n="classes_when"
+                  >Elige entre horarios disponibles</span
+                >
               </div>
             </div>
 
@@ -792,7 +842,9 @@ src="images/bandera-chile.svg?v=2"                    alt="Chile"
 
               <div>
                 <strong data-i18n="classes_real_progress">Progreso real</strong>
-                <span data-i18n="classes_confidence">Objetivos adaptados a ti</span>
+                <span data-i18n="classes_confidence"
+                  >Objetivos adaptados a ti</span
+                >
               </div>
             </div>
           </div>
@@ -890,7 +942,10 @@ src="images/bandera-chile.svg?v=2"                    alt="Chile"
                 <li data-i18n="plan_goals">Seguimiento de tus objetivos</li>
               </ul>
 
-              <a href="reservar.html?tipo=1a1&amp;plan=1" class="planes__card-cta">
+              <a
+                href="reservar.html?tipo=1a1&amp;plan=1"
+                class="planes__card-cta"
+              >
                 <span data-i18n="plan_single_cta">Elegir 1 clase</span>
                 <span aria-hidden="true">→</span>
               </a>
@@ -956,7 +1011,10 @@ src="images/bandera-chile.svg?v=2"                    alt="Chile"
                 <li data-i18n="plan_progress">Seguimiento de tu progreso</li>
               </ul>
 
-              <a href="reservar.html?tipo=1a1&amp;plan=4" class="planes__card-cta">
+              <a
+                href="reservar.html?tipo=1a1&amp;plan=4"
+                class="planes__card-cta"
+              >
                 <span data-i18n="plan_four_cta">Elegir 4 clases</span>
                 <span aria-hidden="true">→</span>
               </a>
@@ -1029,7 +1087,10 @@ src="images/bandera-chile.svg?v=2"                    alt="Chile"
                 </li>
               </ul>
 
-              <a href="reservar.html?tipo=1a1&amp;plan=8" class="planes__card-cta">
+              <a
+                href="reservar.html?tipo=1a1&amp;plan=8"
+                class="planes__card-cta"
+              >
                 <span data-i18n="plan_eight_cta">Elegir 8 clases</span>
                 <span aria-hidden="true">→</span>
               </a>
@@ -1086,7 +1147,11 @@ src="images/bandera-chile.svg?v=2"                    alt="Chile"
           </fieldset>
 
           <p class="dele__booking">
-            <a class="clases__camino-cta clases__camino-cta--dele" id="dele-booking" href="reservar.html?tipo=dele&amp;nivel=B2">
+            <a
+              class="clases__camino-cta clases__camino-cta--dele"
+              id="dele-booking"
+              href="reservar.html?tipo=dele&amp;nivel=B2"
+            >
               <span data-i18n="dele_book">Reservar preparación DELE</span>
               <span aria-hidden="true">→</span>
             </a>
@@ -1202,490 +1267,526 @@ src="images/bandera-chile.svg?v=2"                    alt="Chile"
       <!-- =========================================
      OPINIONES
 ========================================= -->
-    
 
-<section
+      <section
         class="opiniones"
         id="opiniones"
         aria-labelledby="opiniones-titulo"
       >
         <div class="opiniones__container">
           <header class="opiniones__header">
-            <h2 id="opiniones-titulo">
-  Lo que dicen <span>mis estudiantes</span>
-</h2>
-            <p>
-  Experiencias reales de estudiantes que han aprendido español conmigo
-  desde distintos lugares del mundo.
-</p>
+            <h2 id="opiniones-titulo" data-i18n-own="reviews_title">
+              Lo que dicen
+              <span data-i18n="reviews_title_accent">mis estudiantes</span>
+            </h2>
+            <p data-i18n="reviews_intro">
+              Experiencias reales de estudiantes que han aprendido español
+              conmigo desde distintos lugares del mundo.
+            </p>
           </header>
 
           <!-- VIDEOS DESTACADOS -->
           <div class="opiniones__grid">
+            <!-- PIA · VIDEO -->
+            <article class="opinion-card opinion-card--video">
+              <span class="opinion-card__badge" data-i18n="review_video"
+                >VIDEO</span
+              >
 
-  <!-- PIA · VIDEO -->
-  <article class="opinion-card opinion-card--video">
-    <span class="opinion-card__badge">VIDEO</span>
+              <div class="opinion-card__person">
+                <img
+                  class="opinion-card__avatar"
+                  src="images/piafoto.jpg"
+                  alt="Pia"
+                />
 
-    <div class="opinion-card__person">
-      <img
-        class="opinion-card__avatar"
-        src="images/piafoto.jpg"
-        alt="Pia"
-      >
+                <div>
+                  <h3>
+                    Pia
+                    <img
+                      class="opinion-card__flag"
+                      src="images/bandera-bahamas.svg"
+                      alt=""
+                    />
+                  </h3>
+                  <span data-i18n="country_bahamas">Bahamas</span>
+                </div>
+              </div>
 
-      <div>
-<h3>
-  Pia
-  <img
-    class="opinion-card__flag"
-    src="images/bandera-bahamas.svg"
-    alt=""
-  >
-</h3>        <span>Bahamas</span>
-      </div>
-    </div>
+              <p data-i18n="review_pia">
+                “He's an excellent teacher. He's thorough and goes through the
+                information with you.”
+              </p>
 
-    <p>
-  “He's an excellent teacher. He's thorough and goes through the information with you.”
-</p>
+              <button
+                class="opinion-card__video"
+                type="button"
+                data-testimonio-video="videos/pia-testimonio.mp4"
+                data-testimonio-es="videos/pia-testimonio-es.vtt"
+                data-testimonio-en="videos/pia-testimonio-en.vtt"
+                data-testimonio-nombre="Pia Clarke"
+                data-i18n-own="review_watch"
+              >
+                <span>▶</span>
+                Ver testimonio
+              </button>
+            </article>
 
-<button
-  class="opinion-card__video"
-  type="button"
-  data-testimonio-video="videos/pia-testimonio.mp4"
-  data-testimonio-es="videos/pia-testimonio-es.vtt"
-  data-testimonio-en="videos/pia-testimonio-en.vtt"
-  data-testimonio-nombre="Pia Clarke"
->
-  <span>▶</span>
-  Ver testimonio
-</button>
-  </article>
+            <!-- ISTVÁN -->
+            <article class="opinion-card opinion-card--text">
+              <div class="opinion-card__person">
+                <img
+                  class="opinion-card__avatar opinion-card__avatar--istvan"
+                  src="images/pisti.png"
+                  alt="István"
+                />
 
-   <!-- ISTVÁN -->
-  <article class="opinion-card opinion-card--text">
-    <div class="opinion-card__person">
-      <img
-  class="opinion-card__avatar opinion-card__avatar--istvan"
-  src="images/pisti.png"
-  alt="István"
-/>
+                <div>
+                  <h3>
+                    István
+                    <img
+                      class="opinion-card__flag"
+                      src="images/bandera-hungria.svg"
+                      alt=""
+                    />
+                  </h3>
+                  <span data-i18n="country_hungary">Hungría</span>
+                </div>
+              </div>
 
-      <div>
-<h3>
-  István
-  <img
-    class="opinion-card__flag"
-    src="images/bandera-hungria.svg"
-    alt=""
-  >
-</h3>        <span>Hungría</span>
-      </div>
-    </div>
+              <p data-i18n="review_placeholder_istvan">
+                “Aquí irá el testimonio real de István.”
+              </p>
+            </article>
 
-    <p>
-      “Aquí irá el testimonio real de István.”
-    </p>
-  </article>
+            <!-- MICHAŁ · VIDEO -->
+            <article class="opinion-card opinion-card--video">
+              <span class="opinion-card__badge" data-i18n="review_video"
+                >VIDEO</span
+              >
 
+              <div class="opinion-card__person">
+                <img
+                  class="opinion-card__avatar"
+                  src="images/michal-kopacz.jpg"
+                  alt="Michał"
+                />
 
+                <div>
+                  <h3>
+                    Michał
+                    <img
+                      class="opinion-card__flag"
+                      src="images/bandera-polonia.svg"
+                      alt=""
+                    />
+                  </h3>
 
-  <!-- MICHAŁ · VIDEO -->
-  <article class="opinion-card opinion-card--video">
-    <span class="opinion-card__badge">VIDEO</span>
+                  <span data-i18n="moment_poland_title">Polonia</span>
+                </div>
+              </div>
+              <p data-i18n="review_michal">
+                “Uczę się hiszpańskiego z Sebastianem i jest bardzo dobrym
+                nauczycielem.”
+              </p>
 
-    <div class="opinion-card__person">
-      <img
-        class="opinion-card__avatar"
-        src="images/michal-kopacz.jpg"
-        alt="Michał"
-      >
+              <button
+                class="opinion-card__video"
+                type="button"
+                data-testimonio-video="videos/michal-testimonio.mp4"
+                data-testimonio-es="videos/michal-testimonio-es.vtt"
+                data-testimonio-en="videos/michal-testimonio-en.vtt"
+                data-testimonio-pl="videos/michal-testimonio-pl.vtt"
+                data-testimonio-nombre="Michał"
+                data-i18n-own="review_watch"
+              >
+                <span>▶</span>
+                Ver testimonio
+              </button>
+            </article>
 
-      <div>
-<h3>
-  Michał
-  <img
-    class="opinion-card__flag"
-    src="images/bandera-polonia.svg"
-    alt=""
-  >
-</h3>      
+            <!-- TESTIMONIO 4 · TEXTO -->
+            <article class="opinion-card opinion-card--text">
+              <div class="opinion-card__person">
+                <img class="opinion-card__avatar" src="RUTA-FOTO" alt="" />
 
+                <div>
+                  <h3 data-i18n-own="placeholder_name" data-i18n-suffix=" 🇺🇸">
+                    Nombre 🇺🇸
+                  </h3>
+                  <span data-i18n="moment_usa_title">Estados Unidos</span>
+                </div>
+              </div>
 
-<span>Polonia</span>
-      </div>
-    </div>
-  <p>
-  “Uczę się hiszpańskiego z Sebastianem i jest bardzo dobrym nauczycielem.”
-</p>
+              <p data-i18n="review_placeholder">
+                “Aquí irá el testimonio real.”
+              </p>
+            </article>
 
-<button
-  class="opinion-card__video"
-  type="button"
-  data-testimonio-video="videos/michal-testimonio.mp4"
-data-testimonio-es="videos/michal-testimonio-es.vtt"
-data-testimonio-en="videos/michal-testimonio-en.vtt"
-data-testimonio-pl="videos/michal-testimonio-pl.vtt"
-data-testimonio-nombre="Michał"
->
-  <span>▶</span>
-  Ver testimonio
-</button>
+            <!-- TESTIMONIO 5 · VIDEO -->
+            <article class="opinion-card opinion-card--video">
+              <span class="opinion-card__badge" data-i18n="review_video"
+                >VIDEO</span
+              >
+              <div class="opinion-card__person">
+                <img class="opinion-card__avatar" src="RUTA-FOTO" alt="" />
 
- 
-  </article>
+                <div>
+                  <h3 data-i18n-own="placeholder_name" data-i18n-suffix=" 🇧🇸">
+                    Nombre 🇧🇸
+                  </h3>
+                  <span data-i18n="country_bahamas">Bahamas</span>
+                </div>
+              </div>
 
+              <p data-i18n="review_placeholder">
+                “Aquí irá el testimonio real.”
+              </p>
+            </article>
 
- 
+            <!-- TESTIMONIO 6 · TEXTO -->
+            <article class="opinion-card opinion-card--text">
+              <div class="opinion-card__person">
+                <img class="opinion-card__avatar" src="RUTA-FOTO" alt="" />
 
+                <div>
+                  <h3 data-i18n-own="placeholder_name" data-i18n-suffix=" 🇵🇱">
+                    Nombre 🇵🇱
+                  </h3>
+                  <span data-i18n="moment_poland_title">Polonia</span>
+                </div>
+              </div>
 
-  <!-- TESTIMONIO 4 · TEXTO -->
-<article class="opinion-card opinion-card--text">
-    <div class="opinion-card__person">
-      <img
-        class="opinion-card__avatar"
-        src="RUTA-FOTO"
-        alt=""
-      >
+              <p data-i18n="review_placeholder">
+                “Aquí irá el testimonio real.”
+              </p>
+            </article>
 
-      <div>
-        <h3>Nombre 🇺🇸</h3>
-        <span>Estados Unidos</span>
-      </div>
-    </div>
+            <!-- TESTIMONIO 7 · VIDEO -->
+            <article class="opinion-card opinion-card--video">
+              <span class="opinion-card__badge" data-i18n="review_video"
+                >VIDEO</span
+              >
+              <div class="opinion-card__person">
+                <img class="opinion-card__avatar" src="RUTA-FOTO" alt="" />
 
-    <p>
-      “Aquí irá el testimonio real.”
-    </p>
-  </article>
+                <div>
+                  <h3 data-i18n="placeholder_name">Nombre</h3>
+                  <span data-i18n="placeholder_country">País</span>
+                </div>
+              </div>
 
+              <p data-i18n="review_placeholder">
+                “Aquí irá el testimonio real.”
+              </p>
+            </article>
 
-  <!-- TESTIMONIO 5 · VIDEO -->
-<article class="opinion-card opinion-card--video">
-  <span class="opinion-card__badge">VIDEO</span>
-    <div class="opinion-card__person">
-      <img
-        class="opinion-card__avatar"
-        src="RUTA-FOTO"
-        alt=""
-      >
+            <!-- TESTIMONIO 8 · TEXTO -->
+            <article class="opinion-card opinion-card--text">
+              <div class="opinion-card__person">
+                <img class="opinion-card__avatar" src="RUTA-FOTO" alt="" />
 
-      <div>
-        <h3>Nombre 🇧🇸</h3>
-        <span>Bahamas</span>
-      </div>
-    </div>
+                <div>
+                  <h3 data-i18n="placeholder_name">Nombre</h3>
+                  <span data-i18n="placeholder_country">País</span>
+                </div>
+              </div>
 
-    <p>
-      “Aquí irá el testimonio real.”
-    </p>
-  </article>
-
-
-  <!-- TESTIMONIO 6 · TEXTO -->
-<article class="opinion-card opinion-card--text">
-    <div class="opinion-card__person">
-      <img
-        class="opinion-card__avatar"
-        src="RUTA-FOTO"
-        alt=""
-      >
-
-      <div>
-        <h3>Nombre 🇵🇱</h3>
-        <span>Polonia</span>
-      </div>
-    </div>
-
-    <p>
-      “Aquí irá el testimonio real.”
-    </p>
-  </article>
-
-
-  <!-- TESTIMONIO 7 · VIDEO -->
-<article class="opinion-card opinion-card--video">
-  <span class="opinion-card__badge">VIDEO</span>
-    <div class="opinion-card__person">
-      <img
-        class="opinion-card__avatar"
-        src="RUTA-FOTO"
-        alt=""
-      >
-
-      <div>
-        <h3>Nombre</h3>
-        <span>País</span>
-      </div>
-    </div>
-
-    <p>
-      “Aquí irá el testimonio real.”
-    </p>
-  </article>
-
-
-  <!-- TESTIMONIO 8 · TEXTO -->
-<article class="opinion-card opinion-card--text">
-    <div class="opinion-card__person">
-      <img
-        class="opinion-card__avatar"
-        src="RUTA-FOTO"
-        alt=""
-      >
-
-      <div>
-        <h3>Nombre</h3>
-        <span>País</span>
-      </div>
-    </div>
-
-    <p>
-      “Aquí irá el testimonio real.”
-    </p>
-  </article>
-
-</div>
-              
-
+              <p data-i18n="review_placeholder">
+                “Aquí irá el testimonio real.”
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
-<!-- =========================
+      <!-- =========================
      FAQ / PREGUNTAS FRECUENTES
 ========================= -->
-<section class="faq" id="faq" aria-labelledby="faq-title">
-  <div class="faq__container">
+      <section class="faq" id="faq" aria-labelledby="faq-title">
+        <div class="faq__container">
+          <header class="faq__header">
+            <span class="faq__eyebrow" data-i18n="faq_eyebrow">
+              Antes de empezar
+            </span>
 
-    <header class="faq__header">
-      <span class="faq__eyebrow" data-i18n="faq_eyebrow">
-        Antes de empezar
-      </span>
+            <h2 class="faq__title" id="faq-title">
+              <span data-i18n="faq_title">Preguntas</span>
+              <span class="faq__title-accent" data-i18n="faq_title_accent">
+                frecuentes
+              </span>
+            </h2>
 
-      <h2 class="faq__title" id="faq-title">
-        <span data-i18n="faq_title">Preguntas</span>
-        <span class="faq__title-accent" data-i18n="faq_title_accent">
-          frecuentes
-        </span>
-      </h2>
-
-      <p class="faq__intro" data-i18n="faq_intro">
-        Todo lo que necesitas saber sobre las clases, reservas, pagos y preparación DELE.
-      </p>
-    </header>
-
-    <div class="faq__list">
-
-      <article class="faq__item">
-        <button
-          class="faq__question"
-          type="button"
-          aria-expanded="false"
-          aria-controls="faq-answer-1"
-        >
-          <span data-i18n="faq_q1">¿Cómo es la primera clase?</span>
-<span class="faq__plus" aria-hidden="true">
-  <svg viewBox="0 0 24 24">
-    <path d="m7 9.5 5 5 5-5" />
-  </svg>
-</span>        </button>
-
-        <div class="faq__answer" id="faq-answer-1" aria-hidden="true" inert>
-          <div class="faq__answer-inner">
-            <p data-i18n="faq_a1">
-              La clase de prueba dura 30 minutos y es gratuita. Nos sirve para conocernos,
-              conversar sobre tus objetivos y ver qué tipo de clases encajan mejor contigo.
+            <p class="faq__intro" data-i18n="faq_intro">
+              Todo lo que necesitas saber sobre las clases, reservas, pagos y
+              preparación DELE.
             </p>
+          </header>
+
+          <div class="faq__list">
+            <article class="faq__item">
+              <button
+                class="faq__question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-answer-1"
+              >
+                <span data-i18n="faq_q1">¿Cómo es la primera clase?</span>
+                <span class="faq__plus" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="m7 9.5 5 5 5-5" />
+                  </svg>
+                </span>
+              </button>
+
+              <div
+                class="faq__answer"
+                id="faq-answer-1"
+                aria-hidden="true"
+                inert
+              >
+                <div class="faq__answer-inner">
+                  <p data-i18n="faq_a1">
+                    La clase de prueba dura 30 minutos y es gratuita. Nos sirve
+                    para conocernos, conversar sobre tus objetivos y ver qué
+                    tipo de clases encajan mejor contigo.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq__item">
+              <button
+                class="faq__question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-answer-2"
+              >
+                <span data-i18n="faq_q2">¿Dónde se realizan las clases?</span>
+                <span class="faq__plus" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="m7 9.5 5 5 5-5" />
+                  </svg>
+                </span>
+              </button>
+
+              <div
+                class="faq__answer"
+                id="faq-answer-2"
+                aria-hidden="true"
+                inert
+              >
+                <div class="faq__answer-inner">
+                  <p data-i18n="faq_a2">
+                    Las clases son 100% online, por videollamada, para que
+                    puedas conectarte desde cualquier lugar. Al reservar
+                    recibirás la información necesaria para acceder a tu clase.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq__item">
+              <button
+                class="faq__question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-answer-3"
+              >
+                <span data-i18n="faq_q3">¿Cómo funcionan los pagos?</span>
+                <span class="faq__plus" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="m7 9.5 5 5 5-5" />
+                  </svg>
+                </span>
+              </button>
+
+              <div
+                class="faq__answer"
+                id="faq-answer-3"
+                aria-hidden="true"
+                inert
+              >
+                <div class="faq__answer-inner">
+                  <p data-i18n="faq_a3">
+                    Antes de confirmar tu reserva podrás revisar el plan
+                    elegido, el precio y los datos de tu clase. Los métodos de
+                    pago disponibles se mostrarán durante el proceso de reserva.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq__item">
+              <button
+                class="faq__question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-answer-4"
+              >
+                <span data-i18n="faq_q4"
+                  >¿Qué pasa si necesito cambiar o cancelar una clase?</span
+                >
+                <span class="faq__plus" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="m7 9.5 5 5 5-5" />
+                  </svg>
+                </span>
+              </button>
+
+              <div
+                class="faq__answer"
+                id="faq-answer-4"
+                aria-hidden="true"
+                inert
+              >
+                <div class="faq__answer-inner">
+                  <p data-i18n="faq_a4">
+                    Si necesitas cambiar o cancelar una clase, podrás
+                    solicitarlo de acuerdo con las condiciones de reserva de
+                    SebaSpanish. Las condiciones y los plazos se mostrarán antes
+                    de confirmar tu reserva.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq__item">
+              <button
+                class="faq__question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-answer-5"
+              >
+                <span data-i18n="faq_q5"
+                  >¿Necesito saber mi nivel de español?</span
+                >
+                <span class="faq__plus" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="m7 9.5 5 5 5-5" />
+                  </svg>
+                </span>
+              </button>
+
+              <div
+                class="faq__answer"
+                id="faq-answer-5"
+                aria-hidden="true"
+                inert
+              >
+                <div class="faq__answer-inner">
+                  <p data-i18n="faq_a5">
+                    No. Si todavía no conoces tu nivel, lo revisamos juntos y
+                    adaptamos las clases a tu punto de partida, tus objetivos y
+                    tu ritmo.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq__item">
+              <button
+                class="faq__question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-answer-6"
+              >
+                <span data-i18n="faq_q6"
+                  >¿Cómo funciona la preparación DELE?</span
+                >
+                <span class="faq__plus" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="m7 9.5 5 5 5-5" />
+                  </svg>
+                </span>
+              </button>
+
+              <div
+                class="faq__answer"
+                id="faq-answer-6"
+                aria-hidden="true"
+                inert
+              >
+                <div class="faq__answer-inner">
+                  <p data-i18n="faq_a6">
+                    Trabajamos las competencias del examen según tu nivel:
+                    comprensión lectora y auditiva, expresión escrita y oral,
+                    correcciones y simulacros. La preparación de SebaSpanish es
+                    independiente del Instituto Cervantes.
+                  </p>
+                </div>
+              </div>
+            </article>
+            <article class="faq__item">
+              <button
+                class="faq__question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-answer-7"
+              >
+                <span data-i18n="faq_q7">
+                  ¿Cómo reservo una clase y elijo mi horario?
+                </span>
+
+                <span class="faq__plus" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="m7 9.5 5 5 5-5" />
+                  </svg>
+                </span>
+              </button>
+
+              <div
+                class="faq__answer"
+                id="faq-answer-7"
+                aria-hidden="true"
+                inert
+              >
+                <div class="faq__answer-inner">
+                  <p data-i18n="faq_a7">
+                    Elige tu tipo de clase o plan, selecciona uno de los
+                    horarios disponibles y completa tus datos. Antes de
+                    confirmar podrás revisar toda la información de tu reserva.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq__item">
+              <button
+                class="faq__question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-answer-8"
+              >
+                <span data-i18n="faq_q8">
+                  ¿Cuánto duran las clases y cómo funcionan los packs?
+                </span>
+
+                <span class="faq__plus" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="m7 9.5 5 5 5-5" />
+                  </svg>
+                </span>
+              </button>
+
+              <div
+                class="faq__answer"
+                id="faq-answer-8"
+                aria-hidden="true"
+                inert
+              >
+                <div class="faq__answer-inner">
+                  <p data-i18n="faq_a8">
+                    Las clases regulares duran 60 minutos. Puedes reservar una
+                    clase individual o elegir un pack de 4 u 8 clases según la
+                    continuidad que quieras darle a tu aprendizaje.
+                  </p>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
-      </article>
-
-      <article class="faq__item">
-        <button
-          class="faq__question"
-          type="button"
-          aria-expanded="false"
-          aria-controls="faq-answer-2"
-        >
-          <span data-i18n="faq_q2">¿Dónde se realizan las clases?</span>
-<span class="faq__plus" aria-hidden="true">
-  <svg viewBox="0 0 24 24">
-    <path d="m7 9.5 5 5 5-5" />
-  </svg>
-</span>        </button>
-
-        <div class="faq__answer" id="faq-answer-2" aria-hidden="true" inert>
-          <div class="faq__answer-inner">
-            <p data-i18n="faq_a2">
-  Las clases son 100% online, por videollamada, para que puedas conectarte
-  desde cualquier lugar. Al reservar recibirás la información necesaria
-  para acceder a tu clase.
-</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="faq__item">
-        <button
-          class="faq__question"
-          type="button"
-          aria-expanded="false"
-          aria-controls="faq-answer-3"
-        >
-          <span data-i18n="faq_q3">¿Cómo funcionan los pagos?</span>
-<span class="faq__plus" aria-hidden="true">
-  <svg viewBox="0 0 24 24">
-    <path d="m7 9.5 5 5 5-5" />
-  </svg>
-</span>        </button>
-
-        <div class="faq__answer" id="faq-answer-3" aria-hidden="true" inert>
-          <div class="faq__answer-inner">
-            <p data-i18n="faq_a3">
-  Antes de confirmar tu reserva podrás revisar el plan elegido, el precio y los
-  datos de tu clase. Los métodos de pago disponibles se mostrarán durante el
-  proceso de reserva.
-</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="faq__item">
-        <button
-          class="faq__question"
-          type="button"
-          aria-expanded="false"
-          aria-controls="faq-answer-4"
-        >
-<span data-i18n="faq_q4">¿Qué pasa si necesito cambiar o cancelar una clase?</span>
-<span class="faq__plus" aria-hidden="true">
-  <svg viewBox="0 0 24 24">
-    <path d="m7 9.5 5 5 5-5" />
-  </svg>
-</span>   
-</button>
-
-        <div class="faq__answer" id="faq-answer-4" aria-hidden="true" inert>
-          <div class="faq__answer-inner">
-            <p data-i18n="faq_a4">
-  Si necesitas cambiar o cancelar una clase, podrás solicitarlo de acuerdo con
-  las condiciones de reserva de SebaSpanish. Las condiciones y los plazos se
-  mostrarán antes de confirmar tu reserva.
-</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="faq__item">
-        <button
-          class="faq__question"
-          type="button"
-          aria-expanded="false"
-          aria-controls="faq-answer-5"
-        >
-          <span data-i18n="faq_q5">¿Necesito saber mi nivel de español?</span>
-<span class="faq__plus" aria-hidden="true">
-  <svg viewBox="0 0 24 24">
-    <path d="m7 9.5 5 5 5-5" />
-  </svg>
-</span>        </button>
-
-        <div class="faq__answer" id="faq-answer-5" aria-hidden="true" inert>
-          <div class="faq__answer-inner">
-            <p data-i18n="faq_a5">
-  No. Si todavía no conoces tu nivel, lo revisamos juntos y adaptamos
-  las clases a tu punto de partida, tus objetivos y tu ritmo.
-</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="faq__item">
-        <button
-          class="faq__question"
-          type="button"
-          aria-expanded="false"
-          aria-controls="faq-answer-6"
-        >
-          <span data-i18n="faq_q6">¿Cómo funciona la preparación DELE?</span>
-<span class="faq__plus" aria-hidden="true">
-  <svg viewBox="0 0 24 24">
-    <path d="m7 9.5 5 5 5-5" />
-  </svg>
-</span>        </button>
-
-        <div class="faq__answer" id="faq-answer-6" aria-hidden="true" inert>
-          <div class="faq__answer-inner">
-            <p data-i18n="faq_a6">
-  Trabajamos las competencias del examen según tu nivel: comprensión
-  lectora y auditiva, expresión escrita y oral, correcciones y simulacros.
-  La preparación de SebaSpanish es independiente del Instituto Cervantes.
-</p>
-          </div>
-        </div>
-      </article>
-<article class="faq__item">
-  <button
-    class="faq__question"
-    type="button"
-    aria-expanded="false"
-          aria-controls="faq-answer-7"
-  >
-    <span data-i18n="faq_q7">
-      ¿Cómo reservo una clase y elijo mi horario?
-    </span>
-
-    <span class="faq__plus" aria-hidden="true">
-      <svg viewBox="0 0 24 24">
-        <path d="m7 9.5 5 5 5-5" />
-      </svg>
-    </span>
-  </button>
-
-  <div class="faq__answer" id="faq-answer-7" aria-hidden="true" inert>
-    <div class="faq__answer-inner">
-      <p data-i18n="faq_a7">
-        Elige tu tipo de clase o plan, selecciona uno de los horarios
-        disponibles y completa tus datos. Antes de confirmar podrás
-        revisar toda la información de tu reserva.
-      </p>
-    </div>
-  </div>
-</article>
-
-<article class="faq__item">
-  <button
-    class="faq__question"
-    type="button"
-    aria-expanded="false"
-          aria-controls="faq-answer-8"
-  >
-    <span data-i18n="faq_q8">
-      ¿Cuánto duran las clases y cómo funcionan los packs?
-    </span>
-
-    <span class="faq__plus" aria-hidden="true">
-      <svg viewBox="0 0 24 24">
-        <path d="m7 9.5 5 5 5-5" />
-      </svg>
-    </span>
-  </button>
-
-  <div class="faq__answer" id="faq-answer-8" aria-hidden="true" inert>
-    <div class="faq__answer-inner">
-      <p data-i18n="faq_a8">
-        Las clases regulares duran 60 minutos. Puedes reservar una clase
-        individual o elegir un pack de 4 u 8 clases según la continuidad
-        que quieras darle a tu aprendizaje.
-      </p>
-    </div>
-  </div>
-</article>
-    </div>
-  </div>
-</section>
-
+      </section>
     </main>
     <!-- Footer -->
     <footer class="site-footer">
@@ -1699,150 +1800,204 @@ data-testimonio-nombre="Michał"
               width="675"
               height="182"
             />
-            <div class="site-footer__socials" role="group" aria-label="Redes sociales">
+            <div
+              class="site-footer__socials"
+              role="group"
+              aria-label="Redes sociales"
+              data-i18n-aria="footer_socials"
+            >
               <a
-  class="site-footer__social"
-  href="https://www.instagram.com/sebaspanish"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Instagram de SebaSpanish"
-  title="Instagram"
->
-                
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false">
+                class="site-footer__social"
+                href="https://www.instagram.com/sebaspanish"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram de SebaSpanish"
+                title="Instagram"
+                data-i18n-aria="footer_instagram"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  aria-hidden="true"
+                  focusable="false"
+                >
                   <rect x="3" y="3" width="18" height="18" rx="5" />
                   <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1"
+                    fill="currentColor"
+                    stroke="none"
+                  />
                 </svg>
               </a>
               <a
-  class="site-footer__social"
-  href="https://www.facebook.com/profile.php?id=61580625500219"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Facebook de SebaSpanish"
-  title="Facebook"
->
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    stroke="none"
-    aria-hidden="true"
-  >
-    <path
-      d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.7-1.6h1.7V4c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.2H7v3.2h2.9V22h3.6Z"
-    />
-  </svg>
-</a>
+                class="site-footer__social"
+                href="https://www.facebook.com/profile.php?id=61580625500219"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook de SebaSpanish"
+                title="Facebook"
+                data-i18n-aria="footer_facebook"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  stroke="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.7-1.6h1.7V4c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.2H7v3.2h2.9V22h3.6Z"
+                  />
+                </svg>
+              </a>
               <a
-  class="site-footer__social"
-  href="https://www.tiktok.com/@sebaspanish"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="TikTok de SebaSpanish"
-  title="TikTok"
->
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                  <path d="M14 3h3c.3 2.3 1.6 3.7 4 4v3a9 9 0 0 1-4-1.2V16a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3Z" />
+                class="site-footer__social"
+                href="https://www.tiktok.com/@sebaspanish"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok de SebaSpanish"
+                title="TikTok"
+                data-i18n-aria="footer_tiktok"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M14 3h3c.3 2.3 1.6 3.7 4 4v3a9 9 0 0 1-4-1.2V16a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3Z"
+                  />
                 </svg>
               </a>
             </div>
           </div>
 
-          <section class="site-footer__legal" aria-labelledby="footer-legal-title">
-            <h2 id="footer-legal-title">Legal e información</h2>
+          <section
+            class="site-footer__legal"
+            aria-labelledby="footer-legal-title"
+          >
+            <h2 id="footer-legal-title" data-i18n="footer_legal">
+              Legal e información
+            </h2>
             <!-- Sin href hasta que existan las páginas legales. -->
             <ul>
-              <li><span>Política de privacidad</span></li>
-              <li><span>Términos y condiciones</span></li>
-              <li><span>Cambios y cancelaciones</span></li>
+              <li>
+                <span data-i18n="footer_privacy">Política de privacidad</span>
+              </li>
+              <li>
+                <span data-i18n="footer_terms">Términos y condiciones</span>
+              </li>
+              <li>
+                <span data-i18n="footer_cancellations"
+                  >Cambios y cancelaciones</span
+                >
+              </li>
             </ul>
           </section>
 
-          <nav class="site-footer__nav" aria-label="Navegación del pie de página">
-  <div class="site-footer__nav-group">
-    <h2>Explora</h2>
-    <ul>
-      <li><a href="#clases">Clases</a></li>
-      <li><a href="#dele">DELE</a></li>
-      <li><a href="#faq">Preguntas</a></li>
-    </ul>
-  </div>
+          <nav
+            class="site-footer__nav"
+            aria-label="Navegación del pie de página"
+            data-i18n-aria="footer_nav_label"
+          >
+            <div class="site-footer__nav-group">
+              <h2 data-i18n="footer_explore">Explora</h2>
+              <ul>
+                <li><a href="#clases" data-i18n="nav_classes">Clases</a></li>
+                <li><a href="#dele">DELE</a></li>
+                <li><a href="#faq" data-i18n="nav_faq">Preguntas</a></li>
+              </ul>
+            </div>
 
-  <div class="site-footer__nav-group">
-    <h2>Más</h2>
-    <ul>
-      <li><a href="#planes">Planes</a></li>
-      <li><a href="#opiniones">Opiniones</a></li>
-<li><a href="#tarjeta-seba" data-section="tarjeta-seba">Conoce a Seba</a></li>    </ul>
-  </div>
-</nav>
+            <div class="site-footer__nav-group">
+              <h2 data-i18n="footer_more">Más</h2>
+              <ul>
+                <li><a href="#planes" data-i18n="nav_plans">Planes</a></li>
+                <li>
+                  <a href="#opiniones" data-i18n="nav_reviews">Opiniones</a>
+                </li>
+                <li>
+                  <a
+                    href="#tarjeta-seba"
+                    data-section="tarjeta-seba"
+                    data-i18n="nav_about"
+                    >Conoce a Seba</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
 
         <div class="site-footer__bottom">
-          <p>© 2026 SebaSpanish. Todos los derechos reservados.</p>
-          <p>Clases de español online 1 a 1</p>
+          <p data-i18n="footer_copyright">
+            © 2026 SebaSpanish. Todos los derechos reservados.
+          </p>
+          <p data-i18n="footer_tagline">Clases de español online 1 a 1</p>
         </div>
       </div>
     </footer>
 
+    <!-- Modal de testimonios -->
+    <div class="testimonio-modal" id="testimonio-modal" aria-hidden="true">
+      <div class="testimonio-modal__backdrop"></div>
 
-<!-- Modal de testimonios -->
-<div
-  class="testimonio-modal"
-  id="testimonio-modal"
-  aria-hidden="true"
->
-  <div class="testimonio-modal__backdrop"></div>
+      <div
+        class="testimonio-modal__content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="testimonio-modal-title"
+      >
+        <button
+          class="testimonio-modal__close"
+          type="button"
+          aria-label="Cerrar video"
+          data-i18n-aria="review_close"
+        >
+          ×
+        </button>
 
-  <div
-    class="testimonio-modal__content"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="testimonio-modal-title"
-  >
-    <button
-      class="testimonio-modal__close"
-      type="button"
-      aria-label="Cerrar video"
-    >
-      ×
-    </button>
+        <p
+          class="testimonio-modal__title"
+          id="testimonio-modal-title"
+          data-i18n="review_modal_title"
+        ></p>
 
-    <p
-      class="testimonio-modal__title"
-      id="testimonio-modal-title"
-    ></p>
+        <div
+          class="testimonio-modal__languages"
+          aria-label="Idioma de los subtítulos"
+          data-i18n-aria="review_subtitles"
+        >
+          <button
+            class="testimonio-modal__language is-active"
+            type="button"
+            data-subtitle-lang="es"
+            aria-pressed="true"
+          >
+            ES
+          </button>
 
-<div
-  class="testimonio-modal__languages"
-  aria-label="Idioma de los subtítulos"
->
-  <button
-    class="testimonio-modal__language is-active"
-    type="button"
-    data-subtitle-lang="es"
-    aria-pressed="true"
-  >
-    ES
-  </button>
+          <button
+            class="testimonio-modal__language"
+            type="button"
+            data-subtitle-lang="en"
+            aria-pressed="false"
+          >
+            EN
+          </button>
+        </div>
 
-  <button
-    class="testimonio-modal__language"
-    type="button"
-    data-subtitle-lang="en"
-    aria-pressed="false"
-  >
-    EN
-  </button>
-</div>
-
-    <video
-      class="testimonio-modal__video"
-      controls
-      playsinline
-    ></video>
-  </div>
-</div>
+        <video class="testimonio-modal__video" controls playsinline></video>
+      </div>
+    </div>
   </body>
 </html>

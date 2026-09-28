@@ -19,14 +19,14 @@ import {
     unavailable: [
       "La agenda aún no está conectada. Todavía no hay horarios reales para reservar.",
       "The calendar is not connected yet. There are no real booking times available.",
-      "Kalendarz nie jest jeszcze połączony. Nie ma jeszcze rzeczywistych terminów do rezerwacji.",
+      "Rezerwacje nie są jeszcze połączone z kalendarzem. Na razie nie można zarezerwować rzeczywistych terminów.",
     ],
     tryDemo: [
       "Probar flujo de demostración",
-      "Try the demo flow",
+      "Try the demo",
       "Wypróbuj wersję demonstracyjną",
     ],
-    exitDemo: ["Salir de la demostración", "Exit demo", "Wyjdź z demonstracji"],
+    exitDemo: ["Salir de la demostración", "Exit demo", "Zakończ demo"],
     loading: [
       "Consultando horarios…",
       "Loading available times…",
@@ -64,7 +64,7 @@ import {
     memoryNote: [
       "Esta demostración solo permanece en esta pantalla. No se ha enviado ni guardado ningún dato.",
       "This demo only remains on this screen. No details have been sent or saved.",
-      "Ta demonstracja pozostaje tylko na tym ekranie. Żadne dane nie zostały wysłane ani zapisane.",
+      "Ten podgląd jest dostępny tylko na tym ekranie. Żadne dane nie zostały wysłane ani zapisane.",
     ],
     submitting: ["Preparando…", "Preparing…", "Przygotowywanie…"],
     submissionError: [
@@ -77,7 +77,6 @@ import {
       "Available times:",
       "Dostępne godziny:",
     ],
-    title: ["Reserva tu clase", "Book your lesson", "Zarezerwuj lekcję"],
     titleStart: ["Reserva tu", "Book your", "Zarezerwuj"],
     titleAccent: ["clase", "lesson", "lekcję"],
     intro: [
@@ -85,7 +84,7 @@ import {
       "Choose the option that suits you best.",
       "Wybierz opcję najlepiej dopasowaną do siebie.",
     ],
-    home: ["Volver a planes", "Back to plans", "Powrót do planów"],
+    home: ["Volver a planes", "Back to plans", "Powrót do cennika"],
     step1: ["Clase", "Lesson", "Lekcja"],
     step2: ["Horario", "Schedule", "Termin"],
     step3: ["Tus datos", "Your details", "Twoje dane"],
@@ -118,12 +117,12 @@ import {
     demo: [
       "Disponibilidad de demostración. Estos horarios todavía no están conectados a una agenda real.",
       "Demo availability. These times are not yet connected to a real calendar.",
-      "Przykładowa dostępność. Terminy nie są jeszcze połączone z rzeczywistym kalendarzem.",
+      "Przykładowe terminy. Nie pochodzą z rzeczywistego kalendarza.",
     ],
     zoneHelp: [
       "Los horarios se muestran automáticamente en tu hora local.",
       "Times are automatically shown in your local time.",
-      "Godziny są automatycznie wyświetlane w Twoim czasie lokalnym.",
+      "Godziny są automatycznie wyświetlane w Twojej strefie czasowej.",
     ],
     changeZone: [
       "Cambiar zona horaria",
@@ -213,7 +212,7 @@ import {
     preview: [
       "Vista previa · Sin pago ni reserva real",
       "Preview · No payment or real booking",
-      "Podgląd · Bez płatności i rzeczywistej rezerwacji",
+      "Podgląd · Bez płatności i rezerwacji",
     ],
     free: ["Gratis", "Free", "Bezpłatnie"],
     minutes: ["minutos", "minutes", "minut"],
@@ -549,7 +548,6 @@ import {
     $(open ? "#booking-zone" : "#booking-zone-toggle").focus();
   }
   function render() {
-    document.title = `${t("title")} | SebaSpanish`;
     root.querySelectorAll("[data-booking-text]").forEach((el) => {
       el.textContent = t(el.dataset.bookingText);
     });
