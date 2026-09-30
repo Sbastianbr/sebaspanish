@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src https://vvvugnkvtkcfuwxroies.supabase.co; base-uri 'none'; form-action 'none'; object-src 'none'" />
+  <title>SebaSpanish · Mis clases</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20260927-i18n" />
+  <link rel="stylesheet" href="portal.css?v=20260929-2c" />
+  <script src="vendor/supabase-js-2.117.2.js" defer></script>
+  <script src="script.js?v=20260927-i18n" defer></script>
+  <script src="portal.js" type="module"></script>
+</head>
+<body class="portal-page" data-portal-page="access">
+<a class="portal-skip" href="#portal-main" data-portal-i18n="skip">Ir al contenido</a>
+    <header class="navbar">
+      <div class="navbar__container">
+        <!-- Logo -->
+        <a
+          class="navbar__brand"
+          href="index.html#inicio"
+          aria-label="SebaSpanish - Inicio"
+          data-i18n-aria="home_label"
+        >
+          <img class="navbar__logo" src="images/logo.svg" alt="SebaSpanish" />
+        </a>
+
+        <!-- Navegación principal -->
+        <nav
+          class="navbar__menu"
+          aria-label="Navegación principal"
+          data-i18n-aria="nav_label"
+        >
+          <a
+            class="navbar__link"
+            href="index.html#clases"
+            data-i18n="nav_classes"
+          >
+            Clases
+          </a>
+
+          <a
+            class="navbar__link"
+            href="index.html#planes"
+            data-section="planes"
+            data-i18n="nav_plans"
+          >
+            Planes
+          </a>
+
+          <a
+            class="navbar__link"
+            href="index.html#opiniones"
+            data-section="opiniones"
+            data-i18n="nav_reviews"
+          >
+            Opiniones
+          </a>
+
+          <a class="navbar__link" href="index.html#faq" data-i18n="nav_faq"
+            >Preguntas</a
+          >
+
+          <a
+            class="navbar__link"
+            href="index.html#tarjeta-seba"
+            data-section="tarjeta-seba"
+            data-i18n="nav_about"
+          >
+            Conoce a Seba
+          </a>
+        </nav>
+
+        <!-- Acciones -->
+        <div class="navbar__actions">
+          <div class="navbar__language" id="languageSelector">
+            <button
+              class="navbar__language-button"
+              id="languageButton"
+              type="button"
+              aria-haspopup="menu"
+              aria-controls="languageMenu"
+              aria-expanded="false"
+              aria-label="Seleccionar idioma"
+              data-i18n-aria="language_label"
+            >
+              <svg class="navbar__globe" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3 12h18"></path>
+                <path d="M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9"></path>
+                <path d="M12 3C9.5 5.5 8.2 8.5 8.2 12s1.3 6.5 3.8 9"></path>
+              </svg>
+
+              <span class="navbar__language-code" id="currentLanguage">
+                ES
+              </span>
+
+              <svg
+                class="navbar__language-arrow"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+              >
+                <path d="M6 8l4 4 4-4"></path>
+              </svg>
+            </button>
+
+            <div
+              class="navbar__language-menu"
+              id="languageMenu"
+              role="menu"
+              aria-labelledby="languageButton"
+              inert
+            >
+              <button
+                class="navbar__language-option is-active"
+                type="button"
+                data-language="es"
+                lang="es"
+                data-code="ES"
+                role="menuitemradio"
+                aria-checked="true"
+                tabindex="-1"
+              >
+                <span class="navbar__language-name">Español</span>
+                <span class="navbar__language-check" aria-hidden="true">✓</span>
+              </button>
+
+              <button
+                class="navbar__language-option"
+                type="button"
+                data-language="en"
+                lang="en"
+                data-code="EN"
+                role="menuitemradio"
+                aria-checked="false"
+                tabindex="-1"
+              >
+                <span class="navbar__language-name">English</span>
+                <span class="navbar__language-check" aria-hidden="true">✓</span>
+              </button>
+
+              <button
+                class="navbar__language-option"
+                type="button"
+                data-language="pl"
+                lang="pl"
+                data-code="PL"
+                role="menuitemradio"
+                aria-checked="false"
+                tabindex="-1"
+              >
+                <span class="navbar__language-name">Polski</span>
+                <span class="navbar__language-check" aria-hidden="true">✓</span>
+              </button>
+            </div>
+          </div>
+          <button class="navbar__cta" id="portal-logout" type="button" data-portal-i18n="logout" hidden>Cerrar sesión</button>
+        </div>
+      </div>
+    </header>
+<main class="portal portal--access" id="portal-main" tabindex="-1">
+  <div class="portal-panel">
+    <p class="portal-eyebrow">SebaSpanish</p>
+    <h1 data-portal-i18n="access">Accede a Mis clases</h1>
+    <p class="portal-intro" data-portal-i18n="accessIntro">Tu español, a tu ritmo. Recibe un enlace seguro para entrar.</p>
+    <form id="portal-access-form" class="portal-form" hidden>
+      <label for="portal-email" data-portal-i18n="email">Email</label>
+      <input id="portal-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="portal-help" />
+      <button class="portal-button" id="portal-send" type="submit" data-portal-i18n="send">Enviarme un enlace</button>
+      <p class="portal-note" id="portal-help" data-portal-i18n="help">Usa el correo de tu compra. No necesitas contraseña.</p>
+    </form>
+    <p class="portal-status" id="portal-status" role="status" aria-live="polite" data-portal-i18n="loading">Comprobando tu acceso…</p>
+    <button class="portal-button portal-button--quiet" id="portal-retry" type="button" data-portal-i18n="retry" hidden>Reintentar</button>
+    <a class="portal-link" href="index.html" data-portal-i18n="back">Volver a SebaSpanish</a>
+  </div>
+  <noscript><p class="portal-status">Activa JavaScript para acceder a tu espacio privado.</p></noscript>
+</main>
+</body>
+</html>

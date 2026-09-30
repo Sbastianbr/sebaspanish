@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>SebaSpanish | Clases de español online</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css?v=20260927-i18n" />
+    <script src="script.js?v=20260927-i18n" defer></script>
+    <link rel="stylesheet" href="reservas.css?v=20260925-2" />
+    <script src="reservas.js?v=20260928-development1" type="module"></script>
+  </head>
+
+  <body class="booking-page">
+    <header class="navbar">
+      <div class="navbar__container">
+        <!-- Logo -->
+        <a
+          class="navbar__brand"
+          href="index.html#inicio"
+          aria-label="SebaSpanish - Inicio"
+          data-i18n-aria="home_label"
+        >
+          <img class="navbar__logo" src="images/logo.svg" alt="SebaSpanish" />
+        </a>
+
+        <!-- Navegación principal -->
+        <nav
+          class="navbar__menu"
+          aria-label="Navegación principal"
+          data-i18n-aria="nav_label"
+        >
+          <a
+            class="navbar__link"
+            href="index.html#clases"
+            data-i18n="nav_classes"
+          >
+            Clases
+          </a>
+
+          <a
+            class="navbar__link"
+            href="index.html#planes"
+            data-section="planes"
+            data-i18n="nav_plans"
+          >
+            Planes
+          </a>
+
+          <a
+            class="navbar__link"
+            href="index.html#opiniones"
+            data-section="opiniones"
+            data-i18n="nav_reviews"
+          >
+            Opiniones
+          </a>
+
+          <a class="navbar__link" href="index.html#faq" data-i18n="nav_faq"
+            >Preguntas</a
+          >
+
+          <a
+            class="navbar__link"
+            href="index.html#tarjeta-seba"
+            data-section="tarjeta-seba"
+            data-i18n="nav_about"
+          >
+            Conoce a Seba
+          </a>
+        </nav>
+
+        <!-- Acciones -->
+        <div class="navbar__actions">
+          <div class="navbar__language" id="languageSelector">
+            <button
+              class="navbar__language-button"
+              id="languageButton"
+              type="button"
+              aria-haspopup="menu"
+              aria-controls="languageMenu"
+              aria-expanded="false"
+              aria-label="Seleccionar idioma"
+              data-i18n-aria="language_label"
+            >
+              <svg class="navbar__globe" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3 12h18"></path>
+                <path d="M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9"></path>
+                <path d="M12 3C9.5 5.5 8.2 8.5 8.2 12s1.3 6.5 3.8 9"></path>
+              </svg>
+
+              <span class="navbar__language-code" id="currentLanguage">
+                ES
+              </span>
+
+              <svg
+                class="navbar__language-arrow"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+              >
+                <path d="M6 8l4 4 4-4"></path>
+              </svg>
+            </button>
+
+            <div
+              class="navbar__language-menu"
+              id="languageMenu"
+              role="menu"
+              aria-labelledby="languageButton"
+              inert
+            >
+              <button
+                class="navbar__language-option is-active"
+                type="button"
+                data-language="es"
+                lang="es"
+                data-code="ES"
+                role="menuitemradio"
+                aria-checked="true"
+                tabindex="-1"
+              >
+                <span class="navbar__language-name">Español</span>
+                <span class="navbar__language-check" aria-hidden="true">✓</span>
+              </button>
+
+              <button
+                class="navbar__language-option"
+                type="button"
+                data-language="en"
+                lang="en"
+                data-code="EN"
+                role="menuitemradio"
+                aria-checked="false"
+                tabindex="-1"
+              >
+                <span class="navbar__language-name">English</span>
+                <span class="navbar__language-check" aria-hidden="true">✓</span>
+              </button>
+
+              <button
+                class="navbar__language-option"
+                type="button"
+                data-language="pl"
+                lang="pl"
+                data-code="PL"
+                role="menuitemradio"
+                aria-checked="false"
+                tabindex="-1"
+              >
+                <span class="navbar__language-name">Polski</span>
+                <span class="navbar__language-check" aria-hidden="true">✓</span>
+              </button>
+            </div>
+          </div>
+          <a
+            class="navbar__cta"
+            href="reservar.html?tipo=prueba"
+            data-i18n="nav_book"
+          >
+            Reserva tu clase de prueba
+          </a>
+        </div>
+      </div>
+    </header>
+    <main class="booking" id="booking-main">
+      <header class="booking-heading">
+        <a class="booking-home" href="./index.html#planes">
+          <span class="booking-home__arrow" aria-hidden="true">←</span>
+          <span data-booking-text="home">Volver a planes</span>
+        </a>
+        <h1>
+          <span data-booking-text="titleStart">Reserva tu</span>
+          <span data-booking-text="titleAccent">clase</span>
+        </h1>
+        <p data-booking-text="intro">
+          Elige la opción que mejor encaja contigo.
+        </p>
+      </header>
+      <noscript
+        >Activa JavaScript para preparar tu reserva. No se enviará ninguna
+        solicitud desde esta vista previa.</noscript
+      >
+      <div id="booking-app" hidden>
+        <ol
+          class="booking-steps"
+          aria-label="Pasos de la reserva"
+          id="booking-steps"
+        ></ol>
+        <div class="booking-layout">
+          <div class="booking-panel">
+            <section data-step="1" aria-labelledby="service-title">
+              <h2
+                id="service-title"
+                tabindex="-1"
+                data-booking-text="serviceTitle"
+              >
+                Elige tu clase
+              </h2>
+              <fieldset class="booking-fieldset">
+                <legend data-booking-text="type">Tipo de clase</legend>
+                <div class="booking-types" id="booking-types"></div>
+              </fieldset>
+              <div id="booking-level" class="booking-field" hidden>
+                <label for="booking-dele-level" data-booking-text="deleLevel"
+                  >Nivel DELE</label
+                >
+                <select id="booking-dele-level" name="deleLevel">
+                  <option value="" data-booking-text="chooseLevel">
+                    Selecciona tu nivel
+                  </option>
+                  <option>A1</option>
+                  <option>A2</option>
+                  <option>B1</option>
+                  <option>B2</option>
+                  <option>C1</option>
+                  <option>C2</option>
+                </select>
+              </div>
+              <p
+                class="booking-note"
+                id="booking-dele-note"
+                data-booking-text="delePending"
+                hidden
+              ></p>
+              <fieldset class="booking-fieldset" id="booking-plans-fieldset">
+                <legend data-booking-text="plan">Plan</legend>
+                <div id="booking-plans" class="booking-plans"></div>
+              </fieldset>
+              <p
+                class="booking-note"
+                id="booking-pack-note"
+                data-booking-text="packNote"
+                hidden
+              >
+                Ahora reservamos la primera sesión de tu pack. Las siguientes se
+                acordarán después.
+              </p>
+              <div class="booking-actions">
+                <button
+                  class="booking-button"
+                  type="button"
+                  id="service-next"
+                  data-booking-text="chooseSchedule"
+                >
+                  Elegir horario
+                </button>
+              </div>
+            </section>
+            <section data-step="2" aria-labelledby="schedule-title" hidden>
+              <h2
+                id="schedule-title"
+                tabindex="-1"
+                data-booking-text="dayTitle"
+              >
+                Elige un día
+              </h2>
+              <p
+                class="booking-note"
+                id="availability-status"
+                role="status"
+                aria-live="polite"
+              ></p>
+              <div class="booking-source-actions">
+                <button
+                  type="button"
+                  class="booking-button booking-button--secondary"
+                  id="booking-demo"
+                  data-booking-text="tryDemo"
+                >
+                  Probar flujo de demostración
+                </button>
+                <button
+                  type="button"
+                  class="booking-button booking-button--secondary"
+                  id="availability-retry"
+                  data-booking-text="retry"
+                  hidden
+                >
+                  Volver a consultar
+                </button>
+              </div>
+              <div class="booking-zone-field">
+                <p class="booking-zone-label" data-booking-text="timezone">
+                  Tu zona horaria
+                </p>
+                <p
+                  class="booking-zone-value"
+                  id="booking-zone-value"
+                  aria-live="polite"
+                ></p>
+                <p
+                  class="booking-timezone"
+                  id="booking-timezone"
+                  data-booking-text="zoneHelp"
+                >
+                  Los horarios se muestran automáticamente en tu hora local.
+                </p>
+                <button
+                  type="button"
+                  class="booking-zone-toggle"
+                  id="booking-zone-toggle"
+                  aria-expanded="false"
+                  aria-controls="booking-zone-editor"
+                  data-booking-text="changeZone"
+                >
+                  Cambiar zona horaria
+                </button>
+                <div class="booking-field" id="booking-zone-editor" hidden>
+                  <label for="booking-zone" data-booking-text="selectZone"
+                    >Selecciona tu zona horaria</label
+                  >
+                  <select
+                    id="booking-zone"
+                    aria-describedby="booking-timezone"
+                  ></select>
+                </div>
+              </div>
+              <div
+                class="booking-calendar"
+                id="booking-calendar-region"
+                aria-labelledby="calendar-month"
+                aria-busy="false"
+              >
+                <div class="booking-calendar-nav">
+                  <button
+                    type="button"
+                    class="booking-month-button"
+                    id="month-prev"
+                    aria-label="Mes anterior"
+                  >
+                    ←
+                  </button>
+                  <h3 id="calendar-month" aria-live="polite"></h3>
+                  <button
+                    type="button"
+                    class="booking-month-button"
+                    id="month-next"
+                    aria-label="Mes siguiente"
+                  >
+                    →
+                  </button>
+                </div>
+                <div
+                  class="booking-weekdays"
+                  id="calendar-weekdays"
+                  aria-hidden="true"
+                ></div>
+                <div class="booking-days" id="calendar-days"></div>
+              </div>
+              <fieldset class="booking-fieldset booking-times">
+                <legend id="times-title" data-booking-text="timeTitle">
+                  Elige una hora
+                </legend>
+                <p
+                  class="booking-muted"
+                  id="slot-hint"
+                  data-booking-text="selectDay"
+                >
+                  Selecciona un día para ver los horarios.
+                </p>
+                <div class="booking-slots" id="booking-slots"></div>
+                <p
+                  class="booking-muted"
+                  id="slot-status"
+                  role="status"
+                  aria-live="polite"
+                ></p>
+              </fieldset>
+              <div class="booking-actions">
+                <button
+                  type="button"
+                  class="booking-button booking-button--secondary"
+                  data-back="1"
+                  data-booking-text="back"
+                >
+                  Volver
+                </button>
+                <button
+                  type="button"
+                  class="booking-button"
+                  id="schedule-next"
+                  data-booking-text="continue"
+                  disabled
+                >
+                  Continuar
+                </button>
+              </div>
+            </section>
+            <section data-step="3" aria-labelledby="student-title" hidden>
+              <h2
+                id="student-title"
+                tabindex="-1"
+                data-booking-text="studentTitle"
+              >
+                Tus datos
+              </h2>
+              <p class="booking-muted" data-booking-text="required">
+                * Campos obligatorios. Tus datos no se enviarán en esta versión.
+              </p>
+              <p class="booking-note" id="student-dele" hidden></p>
+              <form id="student-form" novalidate>
+                <div class="booking-fields">
+                  <div class="booking-field">
+                    <label for="student-name"
+                      ><span data-booking-text="name"></span>
+                      <span aria-hidden="true">*</span></label
+                    >
+                    <input
+                      id="student-name"
+                      name="name"
+                      type="text"
+                      autocomplete="name"
+                      maxlength="100"
+                      required
+                      aria-describedby="name-error"
+                    />
+                    <p class="booking-error" id="name-error"></p>
+                  </div>
+                  <div class="booking-field">
+                    <label for="student-email"
+                      ><span data-booking-text="email"></span>
+                      <span aria-hidden="true">*</span></label
+                    >
+                    <input
+                      id="student-email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      maxlength="254"
+                      required
+                      aria-describedby="email-error"
+                    />
+                    <p class="booking-error" id="email-error"></p>
+                  </div>
+                  <div class="booking-field">
+                    <label for="student-phone"
+                      ><span data-booking-text="phone"></span
+                    ></label>
+                    <input
+                      id="student-phone"
+                      name="phone"
+                      type="tel"
+                      autocomplete="tel"
+                      maxlength="40"
+                      aria-describedby="phone-error"
+                    />
+                    <p class="booking-error" id="phone-error"></p>
+                  </div>
+                  <div class="booking-field">
+                    <label for="student-language"
+                      ><span data-booking-text="language"
+                        >Idioma de contacto</span
+                      >
+                      <span aria-hidden="true">*</span></label
+                    >
+                    <select
+                      id="student-language"
+                      name="language"
+                      required
+                      aria-describedby="language-error"
+                    >
+                      <option value="" data-booking-text="chooseLanguage">
+                        Selecciona un idioma
+                      </option>
+                      <option value="es">Español</option>
+                      <option value="en">English</option>
+                      <option value="pl">Polski</option>
+                      <option value="other" data-booking-text="otherLanguage">
+                        Otro
+                      </option>
+                    </select>
+                    <p class="booking-error" id="language-error"></p>
+                  </div>
+                  <div class="booking-field">
+                    <label for="student-country"
+                      ><span data-booking-text="country"></span
+                    ></label>
+                    <input
+                      id="student-country"
+                      name="country"
+                      type="text"
+                      autocomplete="country-name"
+                      maxlength="100"
+                      aria-describedby="country-error"
+                    />
+                    <p class="booking-error" id="country-error"></p>
+                  </div>
+                  <div class="booking-field">
+                    <label
+                      for="student-spanishLevel"
+                      data-booking-text="spanishLevel"
+                      >Nivel actual de español (opcional)</label
+                    >
+                    <select id="student-spanishLevel" name="spanishLevel">
+                      <option value="" data-booking-text="unknown">
+                        No lo sé todavía
+                      </option>
+                      <option>A1</option>
+                      <option>A2</option>
+                      <option>B1</option>
+                      <option>B2</option>
+                      <option>C1</option>
+                      <option>C2</option>
+                    </select>
+                  </div>
+                  <div class="booking-field booking-field--wide">
+                    <label for="student-message" data-booking-text="message"
+                      >Mensaje / objetivo (opcional)</label
+                    >
+                    <textarea
+                      id="student-message"
+                      name="message"
+                      rows="3"
+                      maxlength="1500"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="booking-actions">
+                  <button
+                    type="button"
+                    class="booking-button booking-button--secondary"
+                    data-back="2"
+                    data-booking-text="back"
+                  >
+                    Volver
+                  </button>
+                  <button
+                    type="submit"
+                    class="booking-button"
+                    data-booking-text="review"
+                  >
+                    Revisar reserva
+                  </button>
+                </div>
+              </form>
+            </section>
+            <section data-step="4" aria-labelledby="review-title" hidden>
+              <h2
+                id="review-title"
+                tabindex="-1"
+                data-booking-text="reviewTitle"
+              >
+                Revisa tu reserva
+              </h2>
+              <dl class="booking-details" id="booking-review"></dl>
+              <p class="booking-note" data-booking-text="localNote">
+                Esta es una vista previa: no se reserva ninguna plaza, no se
+                cobra y no se envía ningún email.
+              </p>
+              <div class="booking-actions">
+                <button
+                  type="button"
+                  class="booking-button booking-button--secondary"
+                  data-back="3"
+                  data-booking-text="back"
+                >
+                  Volver
+                </button>
+                <button
+                  type="button"
+                  class="booking-button"
+                  id="booking-confirm"
+                  data-booking-text="confirm"
+                >
+                  Preparar reserva
+                </button>
+              </div>
+            </section>
+            <section data-step="5" aria-labelledby="success-title" hidden>
+              <span class="booking-success-mark" aria-hidden="true">✓</span>
+              <h2
+                id="success-title"
+                tabindex="-1"
+                data-booking-text="successTitle"
+              >
+                Tu vista previa está lista
+              </h2>
+              <p class="booking-note" data-booking-text="successNote">
+                Esta es una demostración: no se ha bloqueado ningún horario,
+                realizado ningún pago, enviado ningún email ni guardado una
+                reserva.
+              </p>
+              <dl class="booking-details" id="booking-result"></dl>
+              <p class="booking-muted" id="booking-storage"></p>
+              <div class="booking-actions">
+                <a
+                  class="booking-button"
+                  href="index.html"
+                  data-booking-text="backHome"
+                  >Volver a SebaSpanish</a
+                >
+                <button
+                  type="button"
+                  class="booking-button booking-button--secondary"
+                  id="booking-edit"
+                  data-booking-text="edit"
+                >
+                  Editar borrador
+                </button>
+              </div>
+            </section>
+            <p
+              class="booking-feedback"
+              id="booking-feedback"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            ></p>
+          </div>
+          <aside class="booking-summary" aria-labelledby="summary-title">
+            <h2 id="summary-title" data-booking-text="summaryTitle">
+              Resumen de tu reserva
+            </h2>
+            <dl class="booking-details" id="booking-summary"></dl>
+            <div class="booking-total">
+              <span data-booking-text="total">Total</span
+              ><strong id="booking-price"></strong>
+            </div>
+            <p class="booking-muted" id="booking-rate"></p>
+            <p class="booking-note" data-booking-text="preview">
+              Vista previa · Sin pago ni reserva real
+            </p>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
