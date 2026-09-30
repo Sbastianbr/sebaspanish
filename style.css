@@ -21,6 +21,9 @@
   --color-green: #2f8a68;
   --color-green-soft: #e5f5ee;
 
+  /* En pantallas estrechas, los recorridos permanecen en los márgenes. */
+  --brand-edge-linework: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201000%20760%22%20preserveAspectRatio%3D%22none%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23b89470%22%20stroke-opacity%3D%22.14%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M-20%20160H12L20%20176V214L12%20222H-20%22/%3E%3Cpath%20d%3D%22M1020%20390H988L980%20406V454L988%20466H1020%22/%3E%3C/g%3E%3C/svg%3E");
+
   /* Recursos decorativos ligeros, compartidos por el home. */
   --brand-linework: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%221440%22%20height%3D%22760%22%20viewBox%3D%220%200%201440%20760%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23b89470%22%20stroke-opacity%3D%22.14%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M-40%20140H55Q65%20140%2072%20133L112%2093Q120%2085%20132%2085H235%22/%3E%3Cpath%20d%3D%22M-30%20270H88Q100%20270%20108%20278L144%20314Q152%20322%20164%20322H222%22/%3E%3Cpath%20d%3D%22M550%2050H764Q778%2050%20788%2060L838%20110Q848%20120%20862%20120H960Q974%20120%20984%20110L1034%2060Q1044%2050%201058%2050H1160%22/%3E%3Cpath%20d%3D%22M630%20340H810Q824%20340%20834%20330L869%20295Q879%20285%20893%20285H1030%22/%3E%3Cpath%20d%3D%22M-20%20490H30Q42%20490%2050%20498L78%20526Q86%20534%2098%20534H185%22/%3E%3Cpath%20d%3D%22M90%20660L135%20705Q145%20715%20160%20715H685Q699%20715%20709%20725L755%20771%22/%3E%3C/g%3E%3C/svg%3E");
   --brand-dots: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2266%22%20height%3D%2248%22%20viewBox%3D%220%200%2066%2048%22%3E%3Cg%20fill%3D%22%23ff5a1f%22%20opacity%3D%22.45%22%3E%3Ccircle%20cx%3D%225%22%20cy%3D%225%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%225%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%2241%22%20cy%3D%225%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%2259%22%20cy%3D%225%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%225%22%20cy%3D%2223%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%2223%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%2241%22%20cy%3D%2223%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%2259%22%20cy%3D%2223%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%225%22%20cy%3D%2241%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%2241%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%2241%22%20cy%3D%2241%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%2259%22%20cy%3D%2241%22%20r%3D%222%22/%3E%3C/g%3E%3C/svg%3E");
@@ -363,6 +366,7 @@ a {
 ========================================= */
 
 .presentacion {
+  --hero-linework: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201440%20760%22%20preserveAspectRatio%3D%22none%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23b89470%22%20stroke-opacity%3D%22.14%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M920%20110H995Q1007%20110%201015%20102L1047%2070H1150%22/%3E%3Cpath%20d%3D%22M-20%20690H50L85%20725H640%22/%3E%3C/g%3E%3C/svg%3E");
   max-width: 1280px;
   margin: 0 auto;
   padding: 36px 24px 56px;
@@ -378,25 +382,26 @@ a {
   isolation: isolate;
 }
 
-/* La diagonal sostiene la composición; el óvalo descentrado y el acento
-   menta quedan detrás de la tarjeta. El final se funde con el fondo crema. */
 .presentacion::before {
   content: "";
   position: absolute;
   inset: 0 auto 0 50%;
   width: 100vw;
   transform: translateX(-50%);
+
   background:
-    radial-gradient(ellipse 180px 170px at calc(100% + 90px) 78%,
-      #d4e7df 99.5%, transparent 100%),
-    radial-gradient(ellipse 145px 190px at calc(100% + 70px) 57%,
-      transparent calc(100% - 2px), var(--color-navy) calc(100% - 1.5px),
-      var(--color-navy) calc(100% - 0.5px), transparent 100%),
-    radial-gradient(ellipse clamp(360px, 38vw, 550px) 250px at calc(100% + 105px) 44%,
-      var(--color-orange) 99.7%, transparent 100%),
-    linear-gradient(to bottom right, transparent 49.8%,
-      color-mix(in srgb, var(--color-orange) 88%, var(--color-cream)) 50%)
-      right bottom / clamp(280px, 32vw, 490px) 100% no-repeat;
+  radial-gradient(
+    ellipse 520px 300px at 86% 78%,
+    rgba(255, 90, 31, 0.20) 0%,
+    rgba(254, 217, 183, 0.35) 45%,
+    transparent 78%
+  );
+    linear-gradient(
+      to bottom,
+      transparent 58%,
+      color-mix(in srgb, var(--color-orange-soft) 52%, transparent) 100%
+    );
+
   mask-image: linear-gradient(#000 calc(100% - 80px), transparent);
   pointer-events: none;
   z-index: -1;
@@ -409,9 +414,46 @@ a {
   inset: 0 auto 0 50%;
   width: 100vw;
   transform: translateX(-50%);
-  background:
-    var(--brand-dots) right max(28px, calc((100vw - 1280px) / 2 + 30px)) top 14px / 66px 48px no-repeat,
-    var(--brand-linework) center top / 1440px 760px no-repeat;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 90, 31, 0.55) 0 2px,
+      transparent 2.2px
+    );
+
+  background-size: 14px 14px;
+
+  -webkit-mask-image:
+  linear-gradient(
+    215deg,
+    #000 0%,
+    #000 18%,
+    rgba(0, 0, 0, 0.85) 32%,
+    rgba(0, 0, 0, 0.45) 52%,
+    rgba(0, 0, 0, 0.12) 70%,
+    transparent 86%
+  );
+
+-webkit-mask-size: 340px 300px;
+-webkit-mask-position: right top;
+-webkit-mask-repeat: no-repeat;
+
+mask-image:
+  linear-gradient(
+    215deg,
+    #000 0%,
+    #000 18%,
+    rgba(0, 0, 0, 0.85) 32%,
+    rgba(0, 0, 0, 0.45) 52%,
+    rgba(0, 0, 0, 0.12) 70%,
+    transparent 86%
+  );
+
+mask-size: 340px 300px;
+mask-position: right top;
+mask-repeat: no-repeat;
+
   pointer-events: none;
   z-index: -1;
 }
@@ -421,6 +463,7 @@ a {
   grid-row: 1;
   max-width: 640px;
   padding-top: 18px;
+  translate: 0 -22px;
   transition:
     opacity 240ms ease,
     transform 400ms ease,
@@ -806,7 +849,7 @@ a {
 @media (max-width: 799px) {
   /* En la composición apilada, la geometría acompaña a la tarjeta real. */
   .presentacion::before {
-    background: var(--brand-linework) center top / 1000px 680px no-repeat;
+    background: var(--brand-edge-linework) center top / 100% 760px no-repeat;
     mask-image: none;
   }
 
@@ -823,11 +866,18 @@ a {
     height: 280px;
     transform: translateX(-50%);
     background:
-      var(--brand-dots) right max(24px, calc((100vw - 560px) / 2 + 24px)) top / 44px 32px no-repeat,
-      radial-gradient(ellipse 150px 90px at calc(100% + 100px) 65%,
-        var(--color-green-soft) 99%, transparent 100%),
-      radial-gradient(ellipse 190px 116px at calc(100% + 50px) 58%,
-        var(--color-orange-soft) 99%, transparent 100%);
+      var(--brand-dots) right max(24px, calc((100vw - 560px) / 2 + 24px)) top /
+        44px 32px no-repeat,
+      radial-gradient(
+        ellipse 150px 90px at calc(100% + 100px) 65%,
+        var(--color-green-soft) 99%,
+        transparent 100%
+      ),
+      radial-gradient(
+        ellipse 190px 116px at calc(100% + 50px) 58%,
+        var(--color-orange-soft) 99%,
+        transparent 100%
+      );
     pointer-events: none;
     z-index: -2;
   }
@@ -1213,7 +1263,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--brand-linework) center -180px / 1440px 760px no-repeat;
+  background: var(--brand-linework) center 210px / 1440px 760px no-repeat;
   pointer-events: none;
   z-index: 0;
 }
@@ -1222,8 +1272,11 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 210px 150px at -165px 62%,
-    var(--color-orange-soft) 99%, transparent 100%);
+  background: radial-gradient(
+    ellipse 210px 150px at -165px 62%,
+    var(--color-orange-soft) 99%,
+    transparent 100%
+  );
   pointer-events: none;
   z-index: 0;
 }
@@ -1596,6 +1649,13 @@ a {
 
   list-style: none;
 }
+
+@media (min-width: 1360px) {
+  .presentacion__usos {
+    transform: translateX(-32px);
+  }
+}
+
 .presentacion__uso {
   display: grid;
   grid-template-columns: 76px minmax(0, 1fr);
@@ -1789,7 +1849,7 @@ a {
   margin-top: -24px;
   background:
     var(--brand-dots) right 18px top 26px / 44px 32px no-repeat,
-    var(--brand-linework) center top / 1440px 760px no-repeat;
+    var(--brand-linework) center 210px / 1440px 760px no-repeat;
 }
 
 .planes__container {
@@ -2261,6 +2321,10 @@ a {
   }
 }
 @media (max-width: 799px) {
+  .clases::before {
+    background: var(--brand-edge-linework) center top / 100% 760px no-repeat;
+  }
+
   .clases__caminos {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -2269,6 +2333,9 @@ a {
   }
   .planes {
     padding: 0 20px 64px;
+    background:
+      var(--brand-dots) right 2px top 18px / 12px 24px no-repeat,
+      var(--brand-edge-linework) center top / 100% 760px no-repeat;
   }
   .planes__grid {
     grid-template-columns: minmax(0, 1fr);
@@ -2428,8 +2495,11 @@ a {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 240px 200px at calc(100% + 180px) 48%,
-      #e6e0f5 99%, transparent 100%),
+    radial-gradient(
+      ellipse 240px 200px at calc(100% + 180px) 48%,
+      #e6e0f5 99%,
+      transparent 100%
+    ),
     var(--brand-linework) center -80px / 1440px 760px no-repeat;
   pointer-events: none;
 }
@@ -2632,6 +2702,9 @@ a {
   .dele {
     padding: 0 20px 64px;
   }
+  .dele::before {
+    background: var(--brand-edge-linework) center top / 100% 760px no-repeat;
+  }
   .dele__container {
     padding-top: 40px;
   }
@@ -2720,8 +2793,11 @@ body.ambient--dele {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 200px 150px at -155px 170px,
-    var(--color-green-soft) 99%, transparent 100%);
+  background: radial-gradient(
+    ellipse 130px 105px at -111px 200px,
+    var(--color-green-soft) 99%,
+    transparent 100%
+  );
   pointer-events: none;
   z-index: 0;
 }
@@ -2775,6 +2851,25 @@ body.ambient--dele {
 
 /* TABLET */
 
+@media (max-width: 1100px) {
+  .opiniones {
+    padding-inline: 24px;
+  }
+
+  .opiniones::before {
+    background-size: 100% 100%;
+    background-image: radial-gradient(
+      ellipse 90px 75px at -80px 210px,
+      var(--color-green-soft) 99%,
+      transparent 100%
+    );
+  }
+
+  .opiniones::after {
+    background: var(--brand-edge-linework) center top / 100% 760px no-repeat;
+  }
+}
+
 @media (max-width: 900px) {
   .opiniones {
     padding-top: 72px;
@@ -2785,6 +2880,10 @@ body.ambient--dele {
 /* MÓVIL */
 
 @media (max-width: 650px) {
+  .opiniones::before {
+    display: none;
+  }
+
   .opiniones {
     padding: 64px 20px 68px;
   }
@@ -3355,6 +3454,12 @@ body.modal-open {
   line-height: 1.7;
 }
 
+@media (max-width: 799px) {
+  .faq::before {
+    background: var(--brand-edge-linework) center top / 100% 760px no-repeat;
+  }
+}
+
 @media (max-width: 599px) {
   .faq {
     padding: 64px 20px 72px;
@@ -3407,10 +3512,11 @@ body.modal-open {
    mantienen su footer actual aunque compartan esta hoja de estilos. */
 body:has(.presentacion) .site-footer {
   background:
-    radial-gradient(ellipse 140px 170px at calc(100% + 110px) 100%,
-      var(--color-orange) 99%, transparent 100%),
-    radial-gradient(ellipse 120px 145px at -90px 0,
-      transparent calc(100% - 1px), rgba(247, 242, 236, 0.2) 100%, transparent calc(100% + 1px)),
+    radial-gradient(
+      ellipse 140px 170px at calc(100% + 110px) 100%,
+      var(--color-orange) 99%,
+      transparent 100%
+    ),
     var(--color-navy);
 }
 
