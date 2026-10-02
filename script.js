@@ -481,7 +481,7 @@
   const bio = card?.querySelector("#bio-seba");
   const message = document.querySelector(".presentacion__mensaje");
   const wideLayout = window.matchMedia("(min-width: 800px)");
-  let biographyOpen = window.location.hash === "#tarjeta-seba";
+  let biographyOpen = false;
   const renderBiography = () => {
     if (!card || !toggle || !bio || !label) return;
     card.classList.toggle("is-open", biographyOpen);

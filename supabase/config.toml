@@ -1,0 +1,13 @@
+project_id = "sebaspanish"
+
+# Guest bookings: these two HTTP endpoints are deliberately public.
+# Private SQL functions are executable ONLY by service_role, never by the browser.
+[functions.booking-availability]
+verify_jwt = false
+
+[functions.booking-create]
+verify_jwt = false
+
+# Public, generic passwordless access request; all identity preparation stays server-side.
+[functions.portal-access-request]
+verify_jwt = false

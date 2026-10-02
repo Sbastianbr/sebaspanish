@@ -180,6 +180,24 @@
       <p class="portal-note portal-expiry" id="portal-expiry"></p>
       <p class="portal-note" id="portal-review" hidden></p>
     </section>
+    <section class="portal-panel portal-booking" aria-labelledby="booking-title">
+      <h2 id="booking-title" data-portal-i18n="bookTitle">Reserva con tus créditos</h2>
+      <p class="portal-note" data-portal-i18n="bookIntro">Una clase de 60 minutos utiliza un crédito. Elegiremos automáticamente el que venza antes.</p>
+      <button class="portal-button" id="portal-book-start" type="button" data-portal-i18n="bookStart">Elegir horario</button>
+      <p class="portal-status" id="portal-book-status" role="status" aria-live="polite" hidden></p>
+      <form class="portal-form" id="portal-book-form" hidden>
+        <label for="portal-book-day" data-portal-i18n="bookDay">Día</label>
+        <select id="portal-book-day" required></select>
+        <label for="portal-book-slot" data-portal-i18n="bookTime">Hora</label>
+        <select id="portal-book-slot" required></select>
+        <p class="portal-note" id="portal-book-zone"></p>
+        <p id="portal-book-summary"></p>
+        <div class="portal-row">
+          <button class="portal-button" id="portal-book-confirm" type="submit" data-portal-i18n="bookConfirm">Confirmar · 1 crédito</button>
+          <button class="portal-button portal-button--quiet" id="portal-book-cancel" type="button" data-portal-i18n="bookCancel">Volver</button>
+        </div>
+      </form>
+    </section>
     <div class="portal-columns">
       <div class="portal-stack">
         <section class="portal-panel" aria-labelledby="upcoming-title">

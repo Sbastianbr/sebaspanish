@@ -1,9 +1,10 @@
 import { portalService, PORTAL_URL } from './portal-client.js';
+import { createPortalBooking } from './portal-booking.js';
 import { t, date, money, watchLanguage } from './portal-i18n.js';
 
 const $ = (id) => document.getElementById(id);
 const isAccess = document.body.dataset.portalPage === 'access';
-let service, snapshot = null, generation = 0, expiryTimer, signingOut = false;
+let booking, service, snapshot = null, generation = 0, expiryTimer, signingOut = false;
 let statusKey = 'loading', statusError = false, sending = false;
 const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
 const el = (tag, text, className) => {
@@ -20,6 +21,7 @@ function status(key, error = false) {
 }
 function clearPrivate() {
   snapshot = null;
+  booking?.clear();
   clearTimeout(expiryTimer);
   if (!$('portal-content')) return;
   $('portal-content').hidden = true;
@@ -72,6 +74,7 @@ function render() {
   }));
   $('empty-purchases').hidden = purchases.length > 0;
   $('portal-content').hidden = false;
+  booking?.render(credits.available);
 }
 function accessRedirect(reason) {
   clearPrivate();
@@ -126,6 +129,8 @@ async function logout() {
 watchLanguage(render);
 try {
   service = portalService();
+  if (!isAccess) booking = createPortalBooking({ service, timeZone, refresh: load,
+    denied: () => accessRedirect('expired') });
   // Do not call async Auth methods inside onAuthStateChange: its session lock is held.
   service.subscribe((event) => {
     if (event === 'SIGNED_OUT') {
