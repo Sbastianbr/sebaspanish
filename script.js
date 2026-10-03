@@ -122,11 +122,11 @@
       moment_poland_text:
         "I live here now and keep learning languages as a student, too.",
       moment_poland_alt: "Sebastián during his current life in Poland",
-      nav_classes: "Lessons",
       nav_plans: "Plans",
       nav_reviews: "Reviews",
       nav_faq: "FAQ",
       nav_about: "Meet Seba",
+      nav_my_classes: "My lessons",
       nav_book: "Book your trial lesson",
       hero_title: "Speak Spanish",
       hero_title_accent: "with more confidence",
@@ -191,6 +191,8 @@
         "“He’s an excellent teacher. He’s thorough and goes through the information with you.”",
       review_michal:
         "“I’m learning Spanish with Sebastián and he is a very good teacher.”",
+      review_ron:
+        "“Sebastián makes the lessons easy to follow and creates a comfortable space to practice speaking. I feel more confident in Spanish after every class.”",
       review_placeholder: "“A real testimonial will appear here.”",
       review_placeholder_istvan:
         "“István’s real testimonial will appear here.”",
@@ -336,11 +338,11 @@
       moment_poland_text:
         "Dziś tu mieszkam i nadal uczę się języków — także jako uczeń.",
       moment_poland_alt: "Sebastián mieszkający obecnie w Polsce",
-      nav_classes: "Lekcje",
       nav_plans: "Cennik",
       nav_reviews: "Opinie",
       nav_faq: "Pytania",
       nav_about: "Poznaj Sebę",
+      nav_my_classes: "Moje lekcje",
       nav_book: "Zarezerwuj lekcję próbną",
       hero_title: "Mów swobodniej",
       hero_title_accent: "po hiszpańsku",
@@ -402,11 +404,11 @@
       review_video: "WIDEO",
       review_watch: "Obejrzyj opinię",
       review_pia:
-        "„Jest świetnym nauczycielem. Jest dokładny i omawia z Tobą materiał.”",
+        "“Jest świetnym nauczycielem. Jest dokładny i omawia z Tobą materiał.”",
       review_michal:
-        "„Uczę się hiszpańskiego z Sebastianem i jest bardzo dobrym nauczycielem.”",
-      review_placeholder: "„Tutaj pojawi się prawdziwa opinia.”",
-      review_placeholder_istvan: "„Tutaj pojawi się prawdziwa opinia Istvána.”",
+        "“Uczę się hiszpańskiego z Sebastianem i jest bardzo dobrym nauczycielem.”",
+      review_placeholder: "“Tutaj pojawi się prawdziwa opinia.”",
+      review_placeholder_istvan: "“Tutaj pojawi się prawdziwa opinia Istvána.”",
       placeholder_name: "Imię",
       placeholder_country: "Kraj",
       country_bahamas: "Bahamy",

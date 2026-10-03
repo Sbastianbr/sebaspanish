@@ -201,10 +201,29 @@
     <div class="portal-columns">
       <div class="portal-stack">
         <section class="portal-panel" aria-labelledby="upcoming-title">
-          <h2 id="upcoming-title" data-portal-i18n="upcoming">Próximas clases</h2>
+          <h2 id="upcoming-title" tabindex="-1" data-portal-i18n="upcoming">Próximas clases</h2>
           <p class="portal-note" id="portal-timezone"></p>
           <ul class="portal-list" id="portal-upcoming"></ul>
           <p class="portal-note" id="empty-upcoming" data-portal-i18n="emptyUpcoming" hidden></p>
+          <p class="portal-status" id="portal-manage-status" role="status" aria-live="polite" hidden></p>
+          <form class="portal-form" id="portal-manage-form" aria-labelledby="portal-manage-title" hidden>
+            <h3 id="portal-manage-title" tabindex="-1"></h3>
+            <p class="portal-note" id="portal-manage-original"></p>
+            <p id="portal-manage-policy"></p>
+            <p class="portal-note" data-portal-i18n="manageServerRule"></p>
+            <div class="portal-stack" id="portal-manage-picker" hidden>
+              <label for="portal-manage-day" data-portal-i18n="bookDay"></label>
+              <select id="portal-manage-day"></select>
+              <label for="portal-manage-slot" data-portal-i18n="bookTime"></label>
+              <select id="portal-manage-slot"></select>
+              <p class="portal-note" id="portal-manage-zone"></p>
+              <p id="portal-manage-summary"></p>
+            </div>
+            <div class="portal-row">
+              <button class="portal-button" id="portal-manage-confirm" type="submit"></button>
+              <button class="portal-button portal-button--quiet" id="portal-manage-close" type="button" data-portal-i18n="manageKeep"></button>
+            </div>
+          </form>
         </section>
         <section class="portal-panel" aria-labelledby="history-title">
           <h2 id="history-title" data-portal-i18n="history">Historial de clases</h2>

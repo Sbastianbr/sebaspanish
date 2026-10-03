@@ -1,15 +1,10 @@
 // Presentation only: PostgreSQL owns eligibility, duration and automatic credit selection.
-import { t, date, language } from './portal-i18n.js';
+import { t, date } from './portal-i18n.js';
+import { renderSlotOptions } from './portal-slots.js';
 export function createPortalBooking({ service, timeZone, refresh, denied }) {
   const $ = (id) => document.getElementById('portal-book-' + id);
   let slots = [], selectedDay = '', selectedSlot = '', version = 0, busy = false;
   let credits = 0, message = '', error = false, uncertain = false;
-  const dayKey = (value) => new Intl.DateTimeFormat('en-CA', {
-    timeZone, year: 'numeric', month: '2-digit', day: '2-digit',
-  }).format(new Date(value));
-  function option(value, label) {
-    const item = document.createElement('option'); item.value = value; item.textContent = label; return item;
-  }
   function notice(key, failed = false) { message = key; error = failed; render(credits); }
   function render(available = credits) {
     credits = available;
@@ -19,13 +14,7 @@ export function createPortalBooking({ service, timeZone, refresh, denied }) {
     $('status').hidden = !$('status').textContent;
     $('status').dataset.error = String(error);
     $('zone').textContent = `${t('timezone')} ${timeZone}`;
-    const days = [...new Map(slots.map((slot) => [dayKey(slot.startAt), slot.startAt]))];
-    $('day').replaceChildren(option('', t('bookChoose')), ...days.map(([key, at]) => option(key, date(at, timeZone))));
-    $('day').value = selectedDay;
-    const times = slots.filter((slot) => dayKey(slot.startAt) === selectedDay);
-    $('slot').replaceChildren(option('', t('bookChoose')), ...times.map((slot) => option(slot.id,
-      new Intl.DateTimeFormat(language(), { timeZone, hour: '2-digit', minute: '2-digit', timeZoneName: 'shortOffset' }).format(new Date(slot.startAt)))));
-    $('slot').value = selectedSlot;
+    renderSlotOptions($('day'), $('slot'), slots, selectedDay, selectedSlot, timeZone);
     $('day').disabled = busy || uncertain;
     $('slot').disabled = busy || uncertain || !selectedDay;
     $('cancel').disabled = busy || uncertain;

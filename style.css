@@ -66,7 +66,7 @@ a {
 .navbar {
   width: 100%;
 
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.6);
   border-bottom: 1px solid rgba(255, 255, 255, 0.55);
 
   -webkit-backdrop-filter: blur(18px) saturate(150%);
@@ -1927,9 +1927,7 @@ a {
 .planes {
   padding: 0 24px 64px;
   margin-top: -24px;
-  background:
-    var(--brand-dots) right 18px top 26px / 44px 32px no-repeat,
-    var(--brand-linework) center 210px / 1440px 760px no-repeat;
+  background: var(--brand-dots) right 2px top 18px / 12px 24px no-repeat;
 }
 
 .planes__container {
@@ -2563,21 +2561,15 @@ a {
   position: relative;
   overflow-x: clip;
   overflow-y: visible;
-}
-
-/* La misma geometría, con la identidad lavanda propia de DELE. */
-.dele::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      ellipse 240px 200px at calc(100% + 180px) 48%,
-      #e6e0f5 99%,
-      transparent 100%
-    ),
-    var(--brand-linework) center -80px / 1440px 760px no-repeat;
-  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    #f0edf9 12%,
+    #e9e4f7 42%,
+    #e9e4f7 58%,
+    #f0edf9 88%,
+    transparent 100%
+  );
 }
 
 .dele__container {
@@ -2778,9 +2770,6 @@ a {
   .dele {
     padding: 0 20px 64px;
   }
-  .dele::before {
-    background: var(--brand-edge-linework) center top / 100% 760px no-repeat;
-  }
   .dele__container {
     padding-top: 40px;
   }
@@ -2865,29 +2854,6 @@ body.ambient--dele {
   background: transparent;
 }
 
-.opiniones::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 130px 105px at -111px 200px,
-    var(--color-green-soft) 99%,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-.opiniones::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--brand-linework) center top / 1440px 760px no-repeat;
-  opacity: 0.6;
-  pointer-events: none;
-  z-index: 0;
-}
-
 .opiniones__container {
   position: relative;
   z-index: 1;
@@ -2931,19 +2897,6 @@ body.ambient--dele {
   .opiniones {
     padding-inline: 24px;
   }
-
-  .opiniones::before {
-    background-size: 100% 100%;
-    background-image: radial-gradient(
-      ellipse 90px 75px at -80px 210px,
-      var(--color-green-soft) 99%,
-      transparent 100%
-    );
-  }
-
-  .opiniones::after {
-    background: var(--brand-edge-linework) center top / 100% 760px no-repeat;
-  }
 }
 
 @media (max-width: 900px) {
@@ -2956,10 +2909,6 @@ body.ambient--dele {
 /* MÓVIL */
 
 @media (max-width: 650px) {
-  .opiniones::before {
-    display: none;
-  }
-
   .opiniones {
     padding: 64px 20px 68px;
   }
@@ -3028,19 +2977,6 @@ body.ambient--dele {
     transform 280ms ease;
 }
 
-.opinion-card__avatar--istvan {
-  object-position: center 28%;
-  transform: scale(1.12);
-}
-
-.opinion-card:hover .opinion-card__avatar {
-  transform: scale(1.02);
-}
-
-.opinion-card:hover .opinion-card__avatar--istvan {
-  transform: scale(1.15);
-}
-
 .opinion-card__person h3 {
   margin: 0;
 
@@ -3067,7 +3003,7 @@ body.ambient--dele {
   color: #425f78;
 
   font-size: 14px;
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
 .opinion-card__flag {
@@ -3350,16 +3286,6 @@ body.modal-open {
   background: transparent;
 }
 
-.faq::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--brand-linework) center -160px / 1440px 760px no-repeat;
-  opacity: 0.45;
-  pointer-events: none;
-  z-index: -1;
-}
-
 .faq__container {
   width: min(1024px, 100%);
   margin: 0 auto;
@@ -3531,9 +3457,6 @@ body.modal-open {
 }
 
 @media (max-width: 799px) {
-  .faq::before {
-    background: var(--brand-edge-linework) center top / 100% 760px no-repeat;
-  }
 }
 
 @media (max-width: 599px) {
@@ -3582,18 +3505,6 @@ body.modal-open {
   width: 100%;
   background: var(--color-navy);
   color: var(--color-cream);
-}
-
-/* Cierre gráfico exclusivo del home; las páginas privadas y reservas
-   mantienen su footer actual aunque compartan esta hoja de estilos. */
-body:has(.presentacion) .site-footer {
-  background:
-    radial-gradient(
-      ellipse 140px 170px at calc(100% + 110px) 100%,
-      var(--color-orange) 99%,
-      transparent 100%
-    ),
-    var(--color-navy);
 }
 
 .site-footer__container {

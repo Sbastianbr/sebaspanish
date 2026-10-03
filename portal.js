@@ -1,10 +1,11 @@
 import { portalService, PORTAL_URL } from './portal-client.js';
+import { createPortalLessons } from './portal-lessons.js';
 import { createPortalBooking } from './portal-booking.js';
 import { t, date, money, watchLanguage } from './portal-i18n.js';
 
 const $ = (id) => document.getElementById(id);
 const isAccess = document.body.dataset.portalPage === 'access';
-let booking, service, snapshot = null, generation = 0, expiryTimer, signingOut = false;
+let booking, management, service, snapshot = null, generation = 0, expiryTimer, signingOut = false;
 let statusKey = 'loading', statusError = false, sending = false;
 const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
 const el = (tag, text, className) => {
@@ -22,6 +23,7 @@ function status(key, error = false) {
 function clearPrivate() {
   snapshot = null;
   booking?.clear();
+  management?.clear();
   clearTimeout(expiryTimer);
   if (!$('portal-content')) return;
   $('portal-content').hidden = true;
@@ -41,6 +43,15 @@ function lessons(id, items) {
     const row = el('div', undefined, 'portal-row');
     row.append(el('strong', date(lesson.startsAt, timeZone, true)), badge(lesson.status));
     item.append(row, el('p', `${t(lesson.type)} · ${t('duration', { minutes: lesson.durationMinutes })}`, 'portal-note'));
+    if (id === 'portal-upcoming' && lesson.id && lesson.manageable) {
+      const actions = el('div', undefined, 'portal-row');
+      for (const action of ['cancel', 'reschedule']) {
+        const button = el('button', t(action === 'cancel' ? 'manageCancel' : 'manageReschedule'), 'portal-button portal-button--quiet');
+        button.type = 'button'; button.dataset.manageAction = action; button.dataset.bookingId = lesson.id;
+        button.addEventListener('click', () => management.open(action, lesson, button)); actions.append(button);
+      }
+      item.append(actions);
+    }
     return item;
   }));
   $(id.replace('portal-', 'empty-')).hidden = items.length > 0;
@@ -75,6 +86,7 @@ function render() {
   $('empty-purchases').hidden = purchases.length > 0;
   $('portal-content').hidden = false;
   booking?.render(credits.available);
+  management?.render();
 }
 function accessRedirect(reason) {
   clearPrivate();
@@ -130,6 +142,8 @@ watchLanguage(render);
 try {
   service = portalService();
   if (!isAccess) booking = createPortalBooking({ service, timeZone, refresh: load,
+    denied: () => accessRedirect('expired') });
+  if (!isAccess) management = createPortalLessons({ service, timeZone, refresh: load,
     denied: () => accessRedirect('expired') });
   // Do not call async Auth methods inside onAuthStateChange: its session lock is held.
   service.subscribe((event) => {

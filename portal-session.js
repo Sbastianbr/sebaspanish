@@ -21,15 +21,35 @@ export function createPortalSession(client) {
     if (!identity.data?.user) throw new PortalError('SIGNED_OUT');
     return data.session;
   }
-  let bookingAttempt = null;
+  let bookingAttempt = null, managementAttempt = null;
   const bookingErrors = new Set(['STUDENT_NOT_FOUND', 'NO_AVAILABLE_CREDITS', 'SLOT_UNAVAILABLE',
-    'BOOKING_TOO_SOON', 'IDEMPOTENCY_CONFLICT', 'INVALID_SLOT', 'INVALID_REQUEST', 'INVALID_PLAN', 'RATE_LIMITED']);
+    'BOOKING_TOO_SOON', 'IDEMPOTENCY_CONFLICT', 'INVALID_SLOT', 'INVALID_REQUEST', 'INVALID_PLAN', 'RATE_LIMITED',
+    'BOOKING_NOT_FOUND', 'BOOKING_ALREADY_CANCELLED', 'BOOKING_NOT_UPCOMING', 'BOOKING_NOT_MANAGEABLE',
+    'SAME_SLOT', 'CREDIT_LOSS_CONFIRMATION_REQUIRED']);
   async function privateCall(name, args = {}, booking = false) {
     const { data, error, status } = await client.rpc(name, args).abortSignal(AbortSignal.timeout(15000));
     if (error && booking && bookingErrors.has(error.message)) throw new PortalError(error.message);
     if (error) throw new PortalError(status === 401 || error?.message === 'UNAUTHENTICATED' ? 'SIGNED_OUT' :
       error.code === '42501' ? 'DENIED' : 'UNAVAILABLE');
     return data;
+  }
+  async function manageClass(action, bookingId, slotId, timezone, acceptCreditLoss) {
+    const session = await verifiedSession();
+    const args = { p_booking_id: bookingId, p_accept_credit_loss: acceptCreditLoss };
+    if (action === 'reschedule') Object.assign(args, { p_slot_id: slotId, p_timezone: timezone });
+    const fingerprint = JSON.stringify([session.user?.id, action, args]);
+    if (!managementAttempt || managementAttempt.fingerprint !== fingerprint) {
+      managementAttempt = { fingerprint, args: { ...args, p_request_id: crypto.randomUUID() } };
+    }
+    const receipt = await privateCall(`portal_${action}_class`, managementAttempt.args, true);
+    if (receipt?.bookingId !== bookingId || receipt.action !== action ||
+        receipt.status !== (action === 'cancel' ? 'cancelled' : 'rescheduled') ||
+        !['returned', 'consumed'].includes(receipt.creditOutcome) ||
+        (action === 'reschedule' && (!receipt.replacement?.id || receipt.replacement.slotId !== slotId))) {
+      throw new PortalError('UNAVAILABLE');
+    }
+    managementAttempt = null;
+    return receipt;
   }
   return {
     async completeAccess() {
@@ -72,8 +92,14 @@ export function createPortalSession(client) {
       bookingAttempt = null;
       return receipt;
     },
+    cancelClass(bookingId, acceptCreditLoss = false) {
+      return manageClass('cancel', bookingId, null, null, acceptCreditLoss);
+    },
+    rescheduleClass(bookingId, slotId, timezone, acceptCreditLoss = false) {
+      return manageClass('reschedule', bookingId, slotId, timezone, acceptCreditLoss);
+    },
     async logout() {
-      bookingAttempt = null;
+      bookingAttempt = null; managementAttempt = null;
       // scope=local revokes this session's refresh token, leaving other devices alone.
       // SDK 2.117.2 clears its local session even when remote logout fails.
       const { error } = await client.auth.signOut({ scope: 'local' });

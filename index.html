@@ -39,10 +39,6 @@
           aria-label="Navegación principal"
           data-i18n-aria="nav_label"
         >
-          <a class="navbar__link" href="#clases" data-i18n="nav_classes">
-            Clases
-          </a>
-
           <a
             class="navbar__link"
             href="#planes"
@@ -77,7 +73,13 @@
             data-i18n="nav_about"
           >
             Conoce a Seba
-          </a>
+          <a
+  class="navbar__link"
+  href="acceso.html"
+  data-i18n="nav_my_classes"
+>
+  Mis clases
+</a>
         </nav>
 
         <!-- Acciones -->
@@ -786,14 +788,14 @@
               <div class="clases__resumen-icono" aria-hidden="true">
                 <svg viewBox="0 0 32 32">
                   <path
-                    d="M7 9h11a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4h-5l-4 3v-3H7a4 4 0 0 1-4-4v-4a4 4 0 0 1 4-4Z"
+                    d="M5 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3h-7l-5 4v-4H5a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3Z"
                   ></path>
-
-                  <path d="M14 6h10a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4h-2"></path>
-
-                  <path d="M8 15h1"></path>
-                  <path d="M12 15h1"></path>
-                  <path d="M16 15h1"></path>
+                  <path
+                    d="M22 12h3a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-2v3l-4-3h-4"
+                  ></path>
+                  <path d="M8 13h1"></path>
+                  <path d="M12 13h1"></path>
+                  <path d="M16 13h1"></path>
                 </svg>
               </div>
 
@@ -1367,8 +1369,10 @@
                 </div>
               </div>
 
-              <p data-i18n="review_placeholder_istvan">
-                “Aquí irá el testimonio real de István.”
+              <p>
+                “Sebastiánnal nagyon könnyű beszélgetni, és mindig nyugodt és
+                barátságos légkört teremt. Az órákon sokat lehet gyakorolni a
+                spanyolt.”
               </p>
             </article>
 
@@ -1421,18 +1425,26 @@
             <!-- TESTIMONIO 4 · TEXTO -->
             <article class="opinion-card opinion-card--text">
               <div class="opinion-card__person">
-                <img class="opinion-card__avatar" src="RUTA-FOTO" alt="" />
+                <img class="opinion-card__avatar" src="images/ron.jpg" alt="" />
 
                 <div>
-                  <h3 data-i18n-own="placeholder_name" data-i18n-suffix=" 🇺🇸">
-                    Nombre 🇺🇸
+                  <h3>
+                    Ron
+                    <img
+                      class="opinion-card__flag"
+                      src="images/bandera-bahamas.svg"
+                      alt=""
+                    />
                   </h3>
-                  <span data-i18n="moment_usa_title">Estados Unidos</span>
+
+                  <span data-i18n="country_bahamas">Bahamas</span>
                 </div>
               </div>
 
-              <p data-i18n="review_placeholder">
-                “Aquí irá el testimonio real.”
+              <p data-i18n="review_ron">
+                “Sebastián makes the lessons easy to follow and creates a
+                comfortable space to practice speaking. I feel more confident in
+                Spanish after every class.”
               </p>
             </article>
 
